@@ -1,6 +1,6 @@
 // Ubah nilai ini menjadi URL Web App Google Apps Script setelah deployment.
 // Contoh format URL: https://script.google.com/macros/s/AKfycb.../exec
-const UPLOAD_APP_URL = "";
+const UPLOAD_APP_URL = "https://script.google.com/macros/s/AKfycbxTjGPqgB1k4ws694Mf423UhF9NkBPm8uhi_m1-bstvg7qhuOMeZUCN_-jU_67wUaQiGw/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-year]").forEach((el) => {
