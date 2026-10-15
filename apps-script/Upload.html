@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{--ink:#2b241f;--muted:#756960;--cream:#f8f3eb;--paper:#fffdf9;--brown:#654735;--brown-dark:#39291f;--rust:#b9573d;--line:#e7ddd1}
+    *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif;line-height:1.55}
+    header{background:var(--paper);border-bottom:1px solid var(--line);padding:18px max(20px,calc((100% - 980px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:700;color:var(--brown-dark)}.mark{display:inline-grid;place-items:center;background:var(--brown-dark);color:white;width:36px;height:36px;border-radius:10px;margin-right:9px}
+    header a{color:var(--rust);font-weight:700;text-decoration:none;font-size:.9rem}.wrap{width:min(980px,calc(100% - 32px));margin:44px auto 70px}
+    .eyebrow{color:var(--rust);font-size:.72rem;letter-spacing:.15em;font-weight:800}.intro h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;letter-spacing:-.04em;margin:12px 0}.intro p{color:var(--muted);max-width:680px}
+    .layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:26px;margin-top:28px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 12px 35px rgba(61,42,29,.06)}
+    h2{font-size:1.25rem;margin:0 0 6px}.sub{color:var(--muted);font-size:.88rem;margin:0 0 22px}
+    label{display:block;font-weight:700;font-size:.87rem;margin:17px 0 7px}input,select{font:inherit;width:100%;padding:12px 13px;border:1px solid #d8cbbf;border-radius:9px;background:white;color:var(--ink)}input:focus,select:focus{outline:2px solid #d9a08b;outline-offset:1px}
+    input[type=file]{padding:10px;background:#fffaf4}small{display:block;color:var(--muted);margin-top:7px;font-size:.78rem}
+    button{width:100%;border:0;background:var(--rust);color:white;font-weight:800;font-size:.95rem;padding:14px;border-radius:10px;margin-top:22px;cursor:pointer}button:disabled{opacity:.55;cursor:wait}
+    .status{display:none;margin-top:15px;padding:13px;border-radius:9px;font-size:.88rem;overflow-wrap:anywhere}.status.ok{display:block;background:#e6efe2;color:#355b32}.status.error{display:block;background:#f9e6df;color:#8c3927}
+    .tips{padding-left:20px;color:var(--muted);font-size:.9rem}.tips li{margin:12px 0}.notice{background:#f6ece2;padding:15px;border-radius:10px;font-size:.83rem;color:var(--brown);margin-top:22px}
+    footer{text-align:center;color:var(--muted);font-size:.8rem;padding:0 16px 25px}
+    @media(max-width:720px){.layout{grid-template-columns:1fr}.wrap{margin-top:30px}header{padding:14px 16px}.panel{padding:21px}}
+  </style>
+</head>
+<body>
+<header><div class="brand"><span class="mark">PM</span>Post Management Data</div><a href="https://andriyanaazis.github.io/My-cv/">Kembali ke Website PMD ↗</a></header>
+<main class="wrap">
+  <div class="intro"><div class="eyebrow">CORPORATE TRAINING · PARTICIPANT PORTAL</div><h1>Upload tugas training.</h1><p>Pilih sesi, lengkapi identitas, dan unggah file latihan Excel sesuai instruksi trainer.</p></div>
+  <div class="layout">
+    <aside class="panel"><h2>Sebelum upload</h2><ul class="tips"><li>Pilih sesi yang sesuai dengan tugas Anda.</li><li>Isi nama dan divisi dengan benar.</li><li>Format yang diterima: Excel (.xlsx, .xls) dan CSV (.csv).</li><li>Ukuran maksimum file: 10 MB.</li><li>Jangan unggah informasi rahasia yang tidak diperlukan.</li></ul><div class="notice">File akan disimpan di Google Drive PMD pada folder sesuai sesi. Catatan pengumpulan disimpan di Google Sheets.</div></aside>
+    <section class="panel"><h2>Form pengumpulan tugas</h2><p class="sub">Semua kolom wajib diisi.</p>
+      <form id="uploadForm">
+        <label for="session">Sesi training</label><select id="session" required><option value="">Pilih sesi</option><option>Sesi 1</option><option>Sesi 2</option><option>Sesi 3</option><option>Sesi 4</option><option>Sesi 5</option><option>Sesi 6</option><option>Sesi 7</option><option>Sesi 8</option></select>
+        <label for="name">Nama peserta</label><input id="name" type="text" maxlength="100" autocomplete="name" placeholder="Masukkan nama lengkap" required>
+        <label for="division">Divisi</label><input id="division" type="text" maxlength="100" placeholder="Contoh: Finance, HR, Operations" required>
+        <label for="file">File tugas</label><input id="file" type="file" accept=".xlsx,.xls,.csv" required><small>Format .xlsx, .xls, atau .csv · Maksimum 10 MB</small>
+        <button id="submitButton" type="submit">Upload Tugas</button><div id="status" class="status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </div>
+</main><footer>© <span id="year"></span> Post Management Data · Portal pengumpulan tugas</footer>
+<script>
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const form = document.getElementById("uploadForm");
+  const button = document.getElementById("submitButton");
+  const statusBox = document.getElementById("status");
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function showStatus(message, kind) {
+    statusBox.textContent = message;
+    statusBox.className = "status " + kind;
+  }
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result).split(",")[1] || "");
+      reader.onerror = () => reject(new Error("File tidak dapat dibaca. Coba pilih file lain."));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    statusBox.className = "status";
+    const file = document.getElementById("file").files[0];
+    if (!file) return showStatus("Silakan pilih file tugas.", "error");
+    if (file.size > MAX_FILE_SIZE) return showStatus("Ukuran file melebihi 10 MB.", "error");
+    const ext = (file.name.split(".").pop() || "").toLowerCase();
+    if (!["xlsx", "xls", "csv"].includes(ext)) return showStatus("Format file harus .xlsx, .xls, atau .csv.", "error");
+
+    button.disabled = true;
+    button.textContent = "Mengunggah...";
+    try {
+      const base64 = await fileToBase64(file);
+      const payload = {
+        session: document.getElementById("session").value,
+        name: document.getElementById("name").value.trim(),
+        division: document.getElementById("division").value.trim(),
+        fileName: file.name,
+        mimeType: file.type || "application/octet-stream",
+        base64: base64
+      };
+      if (!payload.session || !payload.name || !payload.division) throw new Error("Lengkapi sesi, nama, dan divisi.");
+      google.script.run
+        .withSuccessHandler((result) => {
+          showStatus((result && result.message) || "Upload selesai.", "ok");
+          form.reset();
+          button.disabled = false;
+          button.textContent = "Upload Tugas";
+        })
+        .withFailureHandler((error) => {
+          showStatus((error && error.message) || "Upload gagal. Silakan coba lagi atau hubungi trainer.", "error");
+          button.disabled = false;
+          button.textContent = "Upload Tugas";
+        })
+        .uploadSubmission(payload);
+    } catch (error) {
+      showStatus(error.message || "Terjadi kesalahan saat menyiapkan file.", "error");
+      button.disabled = false;
+      button.textContent = "Upload Tugas";
+    }
+  });
+</script>
+</body>
+</html>
