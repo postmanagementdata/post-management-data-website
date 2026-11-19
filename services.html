@@ -1,17 +1,444 @@
+
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Layanan Post Management Data: data cleaning, dashboard, automasi spreadsheet, database management, template, dan training."><title>Services & Products | Post Management Data</title><link rel="stylesheet" href="assets/css/style.css"><script src="assets/js/main.js" defer></script></head>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#218CC1">
+  <meta name="description" content="Pilih layanan Post Management Data: kelas Excel online, kelas offline, corporate training, dan jasa pengolahan data.">
+  <title>Service | Post Management Data</title>
+
+  <link rel="icon" type="image/png" href="assets/img/logo-pmd.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+
+  <style>
+    .service-intro {
+      max-width: 820px;
+    }
+
+    .service-intro .lead {
+      max-width: 720px;
+    }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 38px;
+      margin-bottom: 75px;
+    }
+
+    .service-option {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 390px;
+      padding: 30px;
+      border: 1px solid #DFE8EE;
+      border-radius: 18px;
+      background: #FFFFFF;
+      scroll-margin-top: 100px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .service-option:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(35, 75, 100, .09);
+    }
+
+    .service-option.online {
+      background: #FFF8DE;
+      border-color: #F4E6A9;
+    }
+
+    .service-option.offline {
+      background: #F5FAFD;
+    }
+
+    .service-option.corporate {
+      background: #218CC1;
+      color: #FFFFFF;
+      border-color: #218CC1;
+    }
+
+    .service-option.data {
+      background: #FFFFFF;
+    }
+
+    .service-number {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      color: #218CC1;
+    }
+
+    .corporate .service-number {
+      color: #FFDA42;
+    }
+
+    .service-symbol {
+      font-size: 2.2rem;
+      margin: 22px 0 10px;
+      color: #218CC1;
+    }
+
+    .corporate .service-symbol {
+      color: #FFDA42;
+    }
+
+    .service-option h2 {
+      font-size: 1.65rem;
+      margin: 5px 0 12px;
+      line-height: 1.25;
+    }
+
+    .service-option p {
+      font-size: .9rem;
+      line-height: 1.8;
+      color: #647482;
+    }
+
+    .corporate p {
+      color: #E8F5FB;
+    }
+
+    .service-option ul {
+      padding-left: 20px;
+      margin: 14px 0 22px;
+      font-size: .86rem;
+      line-height: 1.9;
+      color: #526775;
+    }
+
+    .corporate ul {
+      color: #FFFFFF;
+    }
+
+    .service-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 12px 0;
+    }
+
+    .service-labels span {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #EAF6FC;
+      color: #24688A;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .corporate .service-labels span {
+      background: rgba(255,255,255,.17);
+      color: #FFFFFF;
+    }
+
+    .service-option .button {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .service-option.corporate .button {
+      background: #FFDA42;
+      color: #263746;
+      border-color: #FFDA42;
+    }
+
+    .service-note {
+      margin: 0 auto 75px;
+      padding: 35px;
+      border-radius: 18px;
+      background: #FFF6D7;
+    }
+
+    .service-note h2 {
+      font-size: 1.8rem;
+      margin: 8px 0;
+    }
+
+    .service-note p {
+      max-width: 700px;
+      color: #647482;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 720px) {
+      .service-options {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .service-option {
+        min-height: auto;
+        padding: 24px;
+      }
+
+      .service-option h2 {
+        font-size: 1.45rem;
+      }
+
+      .service-note {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
 <body>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">PM</span><span>Post Management <b>Data</b></span></a><button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">☰</button><nav class="site-nav"><a href="index.html">Home</a><a class="active" href="services.html">Services</a><a href="training.html">Corporate Training</a><a href="portfolio.html">Portfolio</a><a class="nav-cta" href="upload.html">Upload Tugas</a></nav></header>
+
+<header class="site-header">
+  <a class="brand brand-image" href="index.html" aria-label="Post Management Data Home">
+    <img src="assets/img/logo-pmd.png" alt="Logo Post Management Data">
+  </a>
+
+  <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a class="active" href="services.html">Service</a>
+    <a href="portfolio.html">Portofolio</a>
+    <a class="nav-cta" href="contact.html">Hubungi Kami</a>
+  </nav>
+</header>
+
 <main>
-<section class="page-hero section-wrap"><p class="eyebrow">SERVICES & PRODUCTS</p><h1>Solusi data yang sesuai kebutuhan kerja.</h1><p class="lead">Pilih layanan untuk membantu merapikan data, menyederhanakan proses, dan menyajikan informasi dengan lebih jelas.</p></section>
-<section class="section-wrap section-pad service-list">
-<article class="service-detail" id="data-cleaning"><div class="detail-number">01</div><div><p class="eyebrow">DATA QUALITY</p><h2>Data Cleaning & Formatting</h2><p>Membantu menyiapkan data agar lebih konsisten dan siap digunakan untuk analisis atau pelaporan.</p><ul><li>Standarisasi format tanggal, teks, dan angka</li><li>Pemeriksaan duplikasi dan data kosong</li><li>Penandaan data yang perlu ditinjau</li><li>Template proses pembersihan data</li></ul><span class="tag">Excel · Google Sheets</span></div></article>
-<article class="service-detail" id="dashboard"><div class="detail-number">02</div><div><p class="eyebrow">REPORTING</p><h2>Dashboard & Data Visualization</h2><p>Menyusun data menjadi ringkasan visual agar tren dan indikator penting lebih mudah dipantau.</p><ul><li>Dashboard operasional dan monitoring</li><li>Ringkasan KPI dan grafik</li><li>Rekap bulanan atau periodik</li><li>Layout yang mudah dibaca dan diperbarui</li></ul><span class="tag">Excel · Google Sheets</span></div></article>
-<article class="service-detail" id="automation"><div class="detail-number">03</div><div><p class="eyebrow">WORKFLOW</p><h2>Spreadsheet Automation</h2><p>Mengurangi aktivitas manual berulang melalui formula, template, dan automasi yang terukur.</p><ul><li>Formula dan validasi otomatis</li><li>Template input dan rekap</li><li>Google Apps Script sesuai kebutuhan</li><li>Alur kerja spreadsheet yang lebih konsisten</li></ul><span class="tag">Excel · Google Sheets · Apps Script</span></div></article>
-<article class="service-detail" id="database"><div class="detail-number">04</div><div><p class="eyebrow">DATA ORGANIZATION</p><h2>Database & Data Management</h2><p>Membantu menyusun struktur data agar pencatatan, pencarian, dan pembaruan lebih tertib.</p><ul><li>Struktur tabel dan master data</li><li>Standar kolom dan penamaan</li><li>Arsip digital dan indeks dokumen</li><li>Alur pembaruan dan kontrol data</li></ul><span class="tag">Data structure · Documentation</span></article>
-<article class="service-detail" id="templates"><div class="detail-number">05</div><div><p class="eyebrow">READY-TO-USE TOOLS</p><h2>Spreadsheet Templates</h2><p>Template yang dapat membantu pekerjaan administrasi dan pengolahan data menjadi lebih terstruktur.</p><ul><li>Template data cleaning</li><li>Template monitoring dan rekap</li><li>Template dashboard sederhana</li><li>Panduan penggunaan untuk pengguna</li></ul><span class="tag">Digital products</span></div></article>
-<article class="service-detail" id="training"><div class="detail-number">06</div><div><p class="eyebrow">LEARNING</p><h2>Corporate Excel Training</h2><p>Pelatihan praktis untuk tim yang ingin meningkatkan kemampuan menggunakan Excel dalam pekerjaan.</p><ul><li>Materi disesuaikan dengan kebutuhan peserta</li><li>Latihan berbasis studi kasus</li><li>Praktik dan evaluasi</li><li>Pengumpulan tugas per sesi</li></ul><span class="tag">Corporate · Offline / sesuai kesepakatan</span></div></article>
+
+<!-- INTRO -->
+<section class="page-hero section-wrap service-intro">
+
+  <p class="eyebrow">OUR SERVICES</p>
+
+  <h1>Mau belajar Excel atau butuh bantuan mengolah data?</h1>
+
+  <p class="lead">
+    Tenang, ada PMD! Mulai dari belajar spreadsheet secara santai,
+    meningkatkan kemampuan tim perusahaan, sampai membantu mengelola
+    data agar lebih rapi dan mudah digunakan.
+  </p>
+
+  <a class="button button-primary" href="#pilihan-layanan">
+    Temukan Layananmu ↓
+  </a>
+
 </section>
-<section class="section-wrap cta-panel"><div><p class="eyebrow">NEED A CUSTOM SOLUTION?</p><h2>Belum yakin layanan mana yang tepat?</h2><p>Ceritakan proses kerja dan tantangan data Anda.</p></div><a class="button button-primary" href="contact.html">Diskusikan kebutuhan</a></section>
-</main><footer class="site-footer"><div class="section-wrap footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">PM</span><span>Post Management <b>Data</b></span></a><p>Data rapi, proses lebih efektif.</p><div><a href="privacy.html">Privasi</a><span>© <span data-year></span> Post Management Data</span></div></div></footer>
-</body></html>
+
+<!-- FOUR SERVICES -->
+<section class="section-wrap" id="pilihan-layanan">
+
+  <div class="service-options">
+
+    <!-- 01 ONLINE -->
+    <article class="service-option online" id="kelas-online">
+
+      <span class="service-number">01 / ONLINE LEARNING</span>
+
+      <div class="service-symbol">⌨</div>
+
+      <h2>Kelas Excel Online</h2>
+
+      <p>
+        Belajar Excel dari mana saja bersama tutor.
+        Suasananya santai, interaktif, dan langsung praktik.
+        Kamu bisa memilih belajar secara privat atau bersama grup.
+      </p>
+
+      <div class="service-labels">
+        <span>Private 1-on-1</span>
+        <span>Group Class</span>
+        <span>Online</span>
+      </div>
+
+      <ul>
+        <li>Excel Basic sampai Advanced</li>
+        <li>Formula dan fungsi Excel</li>
+        <li>Google Sheets</li>
+        <li>Latihan sesuai kebutuhan pekerjaan</li>
+        <li>Jadwal belajar fleksibel</li>
+      </ul>
+
+      <a class="button button-primary"
+         href="training.html#kelas-online">
+        Lihat Detail Kelas →
+      </a>
+
+    </article>
+
+    <!-- 02 OFFLINE -->
+    <article class="service-option offline" id="kelas-offline">
+
+      <span class="service-number">02 / FACE-TO-FACE LEARNING</span>
+
+      <div class="service-symbol">✦</div>
+
+      <h2>Kelas Excel Offline</h2>
+
+      <p>
+        Lebih suka belajar langsung? Kita bisa belajar tatap muka.
+        Kamu dapat memilih kelas privat atau grup dengan praktik
+        dan pendampingan langsung dari tutor.
+      </p>
+
+      <div class="service-labels">
+        <span>Private Class</span>
+        <span>Group Class</span>
+        <span>Offline</span>
+      </div>
+
+      <ul>
+        <li>Materi Basic sampai Advanced</li>
+        <li>Belajar dan praktik secara langsung</li>
+        <li>Tanya jawab bersama tutor</li>
+        <li>Materi sesuai tujuan belajar</li>
+        <li>Lokasi dan jadwal berdasarkan kesepakatan</li>
+      </ul>
+
+      <a class="button button-primary"
+         href="training.html#kelas-offline">
+        Lihat Detail Kelas →
+      </a>
+
+    </article>
+
+    <!-- 03 CORPORATE -->
+    <article class="service-option corporate" id="corporate-training">
+
+      <span class="service-number">03 / FOR TEAMS & ORGANIZATIONS</span>
+
+      <div class="service-symbol">▦</div>
+
+      <h2>Corporate Training</h2>
+
+      <p>
+        Program pelatihan Excel dan spreadsheet untuk perusahaan
+        yang ingin meningkatkan kemampuan tim dalam mengelola
+        data dan menyelesaikan pekerjaan sehari-hari.
+      </p>
+
+      <div class="service-labels">
+        <span>Excel</span>
+        <span>Google Sheets</span>
+        <span>Corporate</span>
+      </div>
+
+      <ul>
+        <li>Materi sesuai kebutuhan perusahaan</li>
+        <li>Excel Basic hingga Advanced</li>
+        <li>Latihan berbasis kasus pekerjaan</li>
+        <li>Program dan durasi fleksibel</li>
+        <li>Evaluasi dan pembahasan latihan</li>
+      </ul>
+
+      <a class="button button-primary"
+         href="training.html#corporate-training">
+        Lihat Detail Training →
+      </a>
+
+    </article>
+
+    <!-- 04 DATA SERVICE -->
+    <article class="service-option data" id="data-service">
+
+      <span class="service-number">04 / DATA SOLUTIONS</span>
+
+      <div class="service-symbol">⌘</div>
+
+      <h2>Jasa Pengolahan Data</h2>
+
+      <p>
+        Punya data yang masih berantakan atau laporan yang
+        dikerjakan berulang kali secara manual? Kami membantu
+        membuat pengelolaan data lebih terstruktur dan efisien.
+      </p>
+
+      <div class="service-labels">
+        <span>Data Cleaning</span>
+        <span>Dashboard</span>
+        <span>Automation</span>
+      </div>
+
+      <ul>
+        <li>Data cleaning dan standardisasi</li>
+        <li>Dashboard dan visualisasi data</li>
+        <li>Spreadsheet automation</li>
+        <li>Database dan digital documentation</li>
+        <li>Template dan reporting</li>
+      </ul>
+
+      <a class="button button-primary"
+         href="contact.html">
+        Konsultasikan Kebutuhan →
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section-wrap service-note">
+
+  <p class="eyebrow">NEED A LITTLE HELP?</p>
+
+  <h2>Belum tahu harus memilih layanan yang mana?</h2>
+
+  <p>
+    Nggak perlu bingung. Ceritakan saja kebutuhanmu.
+    Apakah ingin belajar Excel, meningkatkan kemampuan tim,
+    atau membutuhkan bantuan pengolahan data?
+    Kita diskusikan bersama.
+  </p>
+
+  <a class="button button-primary"
+     href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20bertanya%20tentang%20layanan."
+     target="_blank"
+     rel="noopener">
+    Ngobrol dengan PMD ↗
+  </a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+  <div class="section-wrap footer-inner">
+
+    <a class="footer-logo" href="index.html">
+      <img src="assets/img/logo-pmd.png" alt="Post Management Data">
+    </a>
+
+    <p>Rumah untuk data & spreadsheet Anda.</p>
+
+    <div class="footer-links">
+
+      <a href="https://www.instagram.com/postmanagementdata/"
+         target="_blank" rel="noopener">
+        Instagram
+      </a>
+
+      <a href="mailto:postmanagementdata@gmail.com">
+        Email
+      </a>
+
+      <a href="privacy.html">
+        Privasi
+      </a>
+
+      <span>
+        © <span data-year></span> Post Management Data
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
