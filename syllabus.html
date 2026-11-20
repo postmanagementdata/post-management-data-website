@@ -1,1 +1,401 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Master Syllabus Excel Post Management Data: Basic, Intermediate, Advanced, dan Corporate Training. Kelas online, offline, private, dan group.">
+<title>Master Syllabus Excel | Post Management Data</title>
+<style>
+:root{
+  --bg:#fff;--surface:#fff;--surface2:#f5f9fc;--ink:#203647;--muted:#607487;
+  --line:#dce8ef;--brand:#218cc1;--brand2:#167bad;--brandSoft:#eaf6fc;
+  --basic:#218cc1;--inter:#0d9488;--adv:#805ad5;--corp:#d69b12;
+  --shadow:0 12px 30px rgba(25,65,90,.07);--radius:16px;
+}
+[data-theme="dark"]{
+  --bg:#0f172a;--surface:#172438;--surface2:#101d30;--ink:#f1f5f9;--muted:#b2c1ce;
+  --line:#30445a;--brand:#55b8e8;--brand2:#8bd4f5;--brandSoft:#163b53;
+  --basic:#55b8e8;--inter:#5eead4;--adv:#b49af5;--corp:#f5c451;
+  --shadow:0 12px 30px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.65;transition:background .2s,color .2s}
+a{color:var(--brand)}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+.nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1160px;margin:auto;padding:12px 22px;display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);text-decoration:none}
+.logo-mark{width:38px;height:38px;border-radius:10px;background:var(--brand);color:white;display:grid;place-items:center;font-size:12px;font-weight:900}
+.logo small{display:block;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.nav-links{margin-left:auto;display:flex;gap:5px;align-items:center}
+.nav-links a{padding:8px 11px;border-radius:8px;color:var(--muted);font-size:13px;font-weight:650;text-decoration:none}
+.nav-links a:hover{color:var(--brand);background:var(--brandSoft)}
+.theme-btn,.menu-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:38px;height:38px;border-radius:9px}
+.menu-btn{display:none}
+.hero{padding:72px 0 46px;background:radial-gradient(ellipse at 85% 15%,var(--brandSoft),transparent 42%)}
+.eyebrow{display:inline-block;padding:7px 13px;border-radius:8px;background:var(--brandSoft);color:var(--brand);font-size:11px;font-weight:800;letter-spacing:.09em}
+.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.08;letter-spacing:-.045em;margin:20px 0 14px;max-width:780px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.lead{max-width:690px;color:var(--muted);font-size:17px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.badge{padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted);font-size:12px;font-weight:650}
+section{padding:38px 0}
+.section-head{margin-bottom:24px}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--brand);text-transform:uppercase}
+h2{font-size:clamp(24px,3.5vw,34px);letter-spacing:-.03em;line-height:1.2;margin:5px 0 8px}
+.section-head p{color:var(--muted);max-width:700px;margin:0}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:8px;border:1px solid var(--line);border-radius:14px;background:var(--surface2);margin:25px 0 20px}
+.tab{border:1px solid transparent;border-radius:10px;background:transparent;text-align:left;padding:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.tab b{font-size:10px;letter-spacing:.12em;opacity:.8}
+.tab strong{font-size:16px;color:var(--ink)}
+.tab small{font-size:11px}
+.tab.active{background:var(--surface);border-color:var(--line);box-shadow:0 3px 10px rgba(0,0,0,.04)}
+.tab.active strong,.tab.active b{color:var(--tab-accent)}
+.panel{display:none;--accent:var(--brand)}
+.panel.active{display:block;animation:appear .25s ease}
+@keyframes appear{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+.panel-head{display:flex;justify-content:space-between;gap:22px;align-items:flex-end;border-bottom:1px solid var(--line);padding:8px 0 20px;margin-bottom:20px}
+.panel-head h3{font-size:clamp(20px,2.6vw,26px);margin:0}
+.panel-head h3 span{color:var(--accent)}
+.panel-head p{color:var(--muted);font-size:14px;margin:7px 0 0;max-width:650px}
+.progress{min-width:190px}
+.progress-bar{height:7px;background:var(--line);border-radius:99px;overflow:hidden}
+.progress-bar span{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+.progress-meta{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);margin-top:7px}
+.progress-meta strong{color:var(--accent)}
+.reset{margin-left:auto;border:1px solid var(--line);border-radius:6px;padding:3px 8px;background:var(--surface);color:var(--muted);font-size:11px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:13px;padding:19px;background:var(--surface);box-shadow:var(--shadow);border-top:3px solid var(--accent)}
+.card h4{margin:0 0 10px;font-size:15px}
+.card ul{margin:0;padding:0;list-style:none}
+.card li{position:relative;padding:6px 6px 6px 29px;color:var(--muted);font-size:13px;border-radius:7px}
+.card li:before{content:"";position:absolute;left:5px;top:12px;width:13px;height:13px;border:1px solid var(--line);border-radius:4px}
+.card li[aria-checked="true"]{opacity:.58;text-decoration:line-through;text-decoration-color:var(--accent)}
+.card li[aria-checked="true"]:before{content:"✓";display:grid;place-items:center;background:var(--accent);border-color:var(--accent);color:white;font-size:10px;font-weight:800}
+.card li[role="checkbox"]{cursor:pointer}
+.callout{display:flex;gap:12px;margin-top:20px;padding:17px;border-radius:12px;background:var(--brandSoft);border:1px solid var(--line);color:var(--muted);font-size:13px}
+.callout .icon{flex:0 0 25px;height:25px;border-radius:7px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800}
+.callout strong{display:block;color:var(--brand);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.callout.warn{background:#fff8e8;border-color:#f2d99b;color:#755b20}
+[data-theme="dark"] .callout.warn{background:#3a2e17;border-color:#725b28;color:#f6dfa5}
+.callout.warn strong{color:#b98208}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border-radius:9px;text-decoration:none;font-size:13px;font-weight:750}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.secondary{border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.methods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.method,.ref{border:1px solid var(--line);border-radius:13px;padding:20px;background:var(--surface)}
+.method .tag{display:inline-block;padding:5px 9px;background:var(--brandSoft);color:var(--brand);font-size:10px;font-weight:800;border-radius:6px;letter-spacing:.08em}
+.method h3{font-size:17px;margin:12px 0 4px}
+.method p,.method li,.ref p{font-size:13px;color:var(--muted)}
+.method ul{padding-left:18px;margin-bottom:0}
+.corporate-table{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:650px;font-size:13px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface2);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+td{color:var(--muted)}td:first-child{font-weight:800;color:var(--ink);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ref h3{font-size:14px;margin:0 0 6px}
+.ref a{font-size:12px;overflow-wrap:anywhere;text-decoration:none;font-weight:700}
+.ref a:hover{text-decoration:underline}
+.ref p{margin:7px 0 0}
+.custom{margin:42px 0 0;padding:30px;border-radius:16px;background:var(--brand);color:white}
+.custom h2{font-size:25px}
+.custom p{max-width:720px;color:rgba(255,255,255,.92)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{font-size:11px;padding:7px 11px;border-radius:7px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25)}
+footer{border-top:1px solid var(--line);padding:25px 0 40px;color:var(--muted);font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a{color:var(--muted);text-decoration:none}
+.note{font-size:12px;color:var(--muted);margin-top:14px}
+@media(max-width:800px){.tabs{grid-template-columns:repeat(2,1fr)}.methods{grid-template-columns:1fr}.panel-head{align-items:flex-start;flex-direction:column}.progress{width:100%}}
+@media(max-width:620px){
+ .nav-inner{flex-wrap:wrap}.menu-btn{display:block;margin-left:auto}.nav-links{display:none;order:3;width:100%;margin:0;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links a{padding:10px}
+ .hero{padding:48px 0 30px}.cards,.refs{grid-template-columns:1fr}.tabs{grid-template-columns:1fr}.tab{display:grid;grid-template-columns:32px 1fr;align-items:center}.tab b{grid-row:span 2}.tab small{grid-column:2}.custom{padding:23px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="Post Management Data">
+      <span class="logo-mark">PMD</span><span>Master Syllabus<small>Excel &amp; Spreadsheet</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#kurikulum">Kurikulum</a><a href="#metode">Metode Belajar</a>
+      <a href="#referensi">Referensi</a><a href="#custom">Custom Learning</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Ganti tema">🌙</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">BELAJAR EXCEL NGGAK HARUS TEGANG</span>
+    <h1>Santuy belajarnya.<br><em>Jago Excel-nya.</em></h1>
+    <p class="lead">Kurikulum Excel &amp; spreadsheet untuk kelas online, offline, private, group, dan corporate training. Materi disusun bertahap dan dapat disesuaikan dengan kemampuan awal serta kebutuhan pekerjaan.</p>
+    <div class="badges">
+      <span class="badge">Online via Zoom</span><span class="badge">Offline Tatap Muka</span>
+      <span class="badge">Private 1-on-1</span><span class="badge">Group Class</span><span class="badge">Corporate Training</span>
+    </div>
+  </div>
+</section>
+
+<section id="kurikulum">
+<div class="wrap">
+  <div class="section-head"><span class="kicker">Learning Path</span><h2>Peta level &amp; silabus lengkap</h2>
+    <p>Pilih level untuk melihat cakupan materi, prasyarat, dan hasil belajar. Checklist topik merupakan catatan belajar pribadi di browser, bukan penilaian kompetensi atau sertifikasi.</p>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Level kurikulum">
+    <button class="tab active" role="tab" aria-selected="true" aria-controls="basic" id="tab-basic" data-target="basic" style="--tab-accent:var(--basic)"><b>01</b><strong>Basic</strong><small>Fundamental &amp; data entry</small></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="intermediate" id="tab-intermediate" data-target="intermediate" style="--tab-accent:var(--inter)"><b>02</b><strong>Intermediate</strong><small>Data processing &amp; analysis</small></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="advanced" id="tab-advanced" data-target="advanced" style="--tab-accent:var(--adv)"><b>03</b><strong>Advanced</strong><small>Automation &amp; reporting</small></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="corporate" id="tab-corporate" data-target="corporate" style="--tab-accent:var(--corp)"><b>04</b><strong>Corporate</strong><small>Program perusahaan</small></button>
+  </div>
+
+  <div class="panel active" id="basic" role="tabpanel" aria-labelledby="tab-basic" style="--accent:var(--basic)">
+    <div class="panel-head"><div><h3><span style="color:var(--accent)">Basic</span> — Fundamental &amp; Data Entry</h3>
+      <p><b>Target:</b> pemula atau pengguna yang ingin membangun fondasi Excel.<br><b>Prasyarat:</b> mampu menggunakan komputer dan mengelola file dasar.</p></div>
+      <div class="progress"><div class="progress-bar"><span></span></div><div class="progress-meta"><strong>0</strong>/<span class="total">0</span> topik ditandai selesai <button class="reset">Reset</button></div></div>
+    </div>
+    <div class="cards">
+      <article class="card"><h4>1. Pengenalan Excel &amp; Workbook</h4><ul>
+        <li>Antarmuka Excel: Ribbon, Formula Bar, Name Box, Worksheet</li><li>Workbook, worksheet, cell, row, column, range</li><li>Membuat, membuka, menyimpan, dan mengelola file</li><li>Memindahkan, menambah, mengganti nama, dan menghapus worksheet</li>
+      </ul></article>
+      <article class="card"><h4>2. Input &amp; Pengelolaan Data</h4><ul>
+        <li>Input, edit, copy-paste, AutoFill dan Fill Handle</li><li>Mengatur lebar kolom, tinggi baris, dan jenis data</li><li>Menyalin formula dan memahami referensi sel relatif</li><li>Freeze Panes untuk menjaga header tetap terlihat</li>
+      </ul></article>
+      <article class="card"><h4>3. Format &amp; Struktur Tabel</h4><ul>
+        <li>Format Cells: Number, Date, Currency, Percentage</li><li>Font, alignment, border, fill, dan format tanggal</li><li>Membuat Excel Table dan menggunakan header</li><li>Sort dan Filter untuk menemukan informasi</li>
+      </ul></article>
+      <article class="card"><h4>4. Rumus &amp; Fungsi Dasar</h4><ul>
+        <li>Operator aritmetika: tambah, kurang, kali, bagi</li><li>SUM, AVERAGE, MIN, MAX</li><li>COUNT, COUNTA, COUNTBLANK</li><li>Referensi relatif dan absolut ($A$1) sebagai pengantar</li>
+      </ul></article>
+      <article class="card"><h4>5. Pengolahan Teks Dasar</h4><ul>
+        <li>TRIM untuk merapikan spasi berlebih</li><li>UPPER, LOWER, PROPER untuk mengubah kapitalisasi</li><li>LEFT, RIGHT, MID untuk mengambil bagian teks</li><li>CONCAT atau CONCATENATE untuk menggabungkan teks</li>
+      </ul></article>
+      <article class="card"><h4>6. Visualisasi &amp; Praktik</h4><ul>
+        <li>Membuat grafik Column, Bar, dan Line sederhana</li><li>Memilih grafik sesuai tujuan penyajian</li><li>Memeriksa kembali input dan hasil perhitungan</li><li>Praktik: rekap transaksi atau pengeluaran sederhana</li>
+      </ul></article>
+    </div>
+    <div class="callout"><span class="icon">✓</span><div><strong>Hasil belajar &amp; praktik akhir</strong>Peserta mampu membuat workbook sederhana, memasukkan dan memformat data, menggunakan fungsi dasar, mengelola tabel, serta menyajikan ringkasan dalam grafik. Praktik akhir berupa rekap transaksi/pengeluaran dengan data yang rapi dan rumus yang dapat diperiksa.</div></div>
+    <div class="cta-row"><a class="btn primary contact-level" data-level="Basic" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20tertarik%20dengan%20Kelas%20Excel%20Basic.">Tanya Kelas Basic ↗</a></div>
+  </div>
+
+  <div class="panel" id="intermediate" role="tabpanel" aria-labelledby="tab-intermediate" style="--accent:var(--inter)">
+    <div class="panel-head"><div><h3><span style="color:var(--accent)">Intermediate</span> — Data Processing &amp; Analysis</h3>
+      <p><b>Target:</b> pengguna yang sudah memahami dasar Excel dan ingin mengolah data lebih efisien.<br><b>Prasyarat:</b> workbook, referensi sel, fungsi dasar, Excel Table, Sort, dan Filter.</p></div>
+      <div class="progress"><div class="progress-bar"><span></span></div><div class="progress-meta"><strong>0</strong>/<span class="total">0</span> topik ditandai selesai <button class="reset">Reset</button></div></div>
+    </div>
+    <div class="cards">
+      <article class="card"><h4>1. Data Management</h4><ul>
+        <li>Excel Table dan structured references</li><li>Sort dan Filter multi-kriteria</li><li>Data Validation dan dropdown list</li><li>Conditional Formatting untuk menandai kondisi data</li><li>Remove Duplicates dan pengenalan Text to Columns</li>
+      </ul></article>
+      <article class="card"><h4>2. Logical Functions</h4><ul>
+        <li>IF untuk keputusan berdasarkan kondisi</li><li>AND dan OR untuk beberapa kondisi</li><li>IFS untuk beberapa kemungkinan hasil</li><li>IFERROR untuk menangani hasil error</li><li>Menggabungkan fungsi logika sesuai kasus</li>
+      </ul></article>
+      <article class="card"><h4>3. Conditional Functions</h4><ul>
+        <li>SUMIF dan SUMIFS</li><li>COUNTIF dan COUNTIFS</li><li>AVERAGEIF dan AVERAGEIFS</li><li>Menggunakan satu atau beberapa kriteria</li>
+      </ul></article>
+      <article class="card"><h4>4. Lookup &amp; Data Matching</h4><ul>
+        <li>VLOOKUP dan HLOOKUP (pengenalan)</li><li>XLOOKUP pada versi Excel yang mendukung</li><li>Exact match dan pemilihan kolom hasil</li><li>Mencocokkan data antar tabel referensi</li>
+      </ul></article>
+      <article class="card"><h4>5. Text &amp; Date Functions</h4><ul>
+        <li>LEFT, RIGHT, MID, LEN, TRIM, PROPER, CONCAT</li><li>DATE, TODAY, DAY, MONTH, YEAR</li><li>Mengolah dan menstandarkan teks serta tanggal</li><li>Membersihkan data sederhana sebelum analisis</li>
+      </ul></article>
+      <article class="card"><h4>6. Analysis &amp; Reporting</h4><ul>
+        <li>Membuat dan mengatur PivotTable</li><li>Grouping, filter, dan ringkasan berdasarkan kategori</li><li>Pengenalan PivotChart dan Slicer</li><li>Praktik: laporan penjualan, absensi, atau operasional</li>
+      </ul></article>
+    </div>
+    <div class="callout"><span class="icon">✓</span><div><strong>Hasil belajar &amp; praktik akhir</strong>Peserta mampu membersihkan dan mengelola dataset, menerapkan formula berdasarkan kriteria, mencocokkan data dari tabel referensi, serta membuat ringkasan menggunakan PivotTable.</div></div>
+    <div class="cta-row"><a class="btn primary contact-level" data-level="Intermediate" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20tertarik%20dengan%20Kelas%20Excel%20Intermediate.">Tanya Kelas Intermediate ↗</a></div>
+  </div>
+
+  <div class="panel" id="advanced" role="tabpanel" aria-labelledby="tab-advanced" style="--accent:var(--adv)">
+    <div class="panel-head"><div><h3><span style="color:var(--accent)">Advanced</span> — Automation &amp; Business Reporting</h3>
+      <p><b>Target:</b> pengguna yang mampu mengolah dataset dan membuat ringkasan analisis.<br><b>Prasyarat:</b> formula logika/bersyarat, lookup, Excel Table, dan PivotTable dasar.</p></div>
+      <div class="progress"><div class="progress-bar"><span></span></div><div class="progress-meta"><strong>0</strong>/<span class="total">0</span> topik ditandai selesai <button class="reset">Reset</button></div></div>
+    </div>
+    <div class="cards">
+      <article class="card"><h4>1. Advanced Formulas</h4><ul>
+        <li>INDEX dan MATCH untuk pencarian fleksibel</li><li>Nested functions dan kombinasi formula</li><li>FILTER, UNIQUE, SORT pada Excel yang mendukung Dynamic Arrays</li><li>Formula tanggal: EOMONTH dan NETWORKDAYS</li>
+      </ul></article>
+      <article class="card"><h4>2. Power Query — Modul Utama</h4><ul>
+        <li>Menghubungkan dan mengimpor data dari sumber</li><li>Change Data Type, Remove Columns, Split dan Merge</li><li>Append Queries dan Merge Queries</li><li>Load hasil transformasi dan Refresh Query</li>
+      </ul></article>
+      <article class="card"><h4>3. Advanced Reporting</h4><ul>
+        <li>PivotTable dan PivotChart lanjutan</li><li>Dashboard layout dan pemilihan visual</li><li>KPI, tren, perbandingan, dan ringkasan performa</li><li>Prinsip desain laporan yang mudah dibaca</li>
+      </ul></article>
+      <article class="card"><h4>4. Workbook Control &amp; Automation</h4><ul>
+        <li>Proteksi worksheet dan workbook</li><li>Named ranges dan pengelolaan workbook</li><li>Pengenalan Macro Recorder</li><li>Pengantar VBA sebagai modul opsional sesuai kebutuhan</li>
+      </ul></article>
+      <article class="card"><h4>5. Data Quality &amp; Workflow</h4><ul>
+        <li>Memeriksa konsistensi dan kelengkapan data</li><li>Menentukan alur data mentah hingga laporan</li><li>Mendokumentasikan langkah transformasi</li><li>Membuat prosedur refresh dan validasi output</li>
+      </ul></article>
+      <article class="card"><h4>6. Capstone Project</h4><ul>
+        <li>Mengolah data mentah dari satu atau beberapa sumber</li><li>Membangun proses transformasi dengan Power Query</li><li>Membuat ringkasan dan dashboard operasional</li><li>Mempresentasikan hasil dan alur pembaruan data</li>
+      </ul></article>
+    </div>
+    <div class="callout warn"><span class="icon">!</span><div><strong>Kompatibilitas &amp; modul opsional</strong>Fitur XLOOKUP dan Dynamic Arrays bergantung pada versi Excel. Ketersediaan Power Query berbeda menurut platform dan versi. Macro/VBA memerlukan Excel Desktop; VBA bukan bagian wajib setiap kelas Advanced dan ditawarkan sebagai modul tambahan sesuai kebutuhan.</div></div>
+    <div class="cta-row"><a class="btn primary contact-level" data-level="Advanced" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20tertarik%20dengan%20Kelas%20Excel%20Advanced.">Tanya Kelas Advanced ↗</a></div>
+  </div>
+
+  <div class="panel" id="corporate" role="tabpanel" aria-labelledby="tab-corporate" style="--accent:var(--corp)">
+    <div class="panel-head"><div><h3><span style="color:var(--accent)">Corporate</span> — Corporate Excel Training</h3>
+      <p>Contoh rancangan delapan sesi untuk kebutuhan administrasi dan operasional perusahaan. Materi dapat disesuaikan setelah asesmen awal; program ini bukan kurikulum sertifikasi resmi.</p></div></div>
+    <div class="corporate-table"><table><thead><tr><th>Sesi</th><th>Topik</th><th>Fokus pembelajaran &amp; output</th></tr></thead><tbody>
+      <tr><td>01</td><td>Logical Functions &amp; Automated Status</td><td>IF, AND, OR, IFS, IFERROR untuk status, klasifikasi, dan keputusan otomatis.</td></tr>
+      <tr><td>02</td><td>Conditional Functions &amp; Operational Analysis</td><td>SUMIF(S), COUNTIF(S), AVERAGEIF(S) untuk analisis berdasarkan kriteria.</td></tr>
+      <tr><td>03</td><td>Lookup &amp; Data Matching</td><td>VLOOKUP/XLOOKUP untuk mengambil dan mencocokkan data antar tabel.</td></tr>
+      <tr><td>04</td><td>Text Functions &amp; Data Cleaning</td><td>Membersihkan, memisahkan, dan menstandarkan data teks.</td></tr>
+      <tr><td>05</td><td>Date &amp; Time Functions / SLA Monitoring</td><td>Pengolahan tanggal, periode, hari kerja, dan pemantauan tenggat/SLA.</td></tr>
+      <tr><td>06</td><td>Combining Functions for Automated Decisions</td><td>Menggabungkan formula untuk membuat alur keputusan dan validasi data.</td></tr>
+      <tr><td>07</td><td>Operational Data Analysis &amp; Reporting</td><td>PivotTable, PivotChart, ringkasan, dan visualisasi laporan.</td></tr>
+      <tr><td>08</td><td>Mini Project — Operational Report</td><td>Proyek akhir berbasis kasus kerja peserta; presentasi hasil dan evaluasi.</td></tr>
+    </tbody></table></div>
+    <div class="callout"><span class="icon">✓</span><div><strong>Output program</strong>Peserta menghasilkan workbook/laporan operasional sesuai studi kasus yang disepakati. Sebelum pelatihan, PMD melakukan pemetaan kemampuan awal, aplikasi/versi Excel, tujuan divisi, dan contoh pekerjaan. Power Query atau dashboard dapat menjadi modul tambahan bila sesuai tujuan dan durasi.</div></div>
+    <div class="cta-row"><a class="btn primary contact-level" data-level="Corporate Training" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20berdiskusi%20tentang%20Corporate%20Excel%20Training.">Diskusikan Corporate Training ↗</a></div>
+  </div>
+
+  <p class="note">Catatan: pembagian Basic, Intermediate, dan Advanced adalah learning path internal PMD. Level merupakan panduan belajar, bukan padanan langsung sertifikasi Microsoft.</p>
+</div>
+</section>
+
+<section id="metode">
+<div class="wrap">
+  <div class="section-head"><span class="kicker">Learning Experience</span><h2>Metode pelaksanaan</h2><p>Materi inti dapat diterapkan melalui beberapa format. Media, jadwal, durasi, dan jumlah peserta disepakati sebelum kelas dimulai.</p></div>
+  <div class="methods">
+    <article class="method"><span class="tag">ONLINE</span><h3>Live via Zoom Meeting</h3><p>Belajar interaktif dari mana saja.</p><ul><li>Live demonstration dan screen sharing</li><li>Praktik langsung dengan file latihan</li><li>Tanya jawab dan pembahasan tugas</li><li>Private 1-on-1 atau Group Class</li></ul></article>
+    <article class="method"><span class="tag">OFFLINE</span><h3>Tatap Muka</h3><p>Belajar langsung bersama tutor.</p><ul><li>Praktik dan pendampingan tutor</li><li>Diskusi serta latihan terarah</li><li>Private atau Group Class</li><li>Lokasi dan jadwal berdasarkan kesepakatan</li></ul></article>
+    <article class="method"><span class="tag">CORPORATE</span><h3>Program Perusahaan</h3><p>Pelatihan yang berangkat dari kebutuhan tim.</p><ul><li>Training needs assessment</li><li>Studi kasus sesuai divisi/proses kerja</li><li>Latihan dan evaluasi kompetensi</li><li>Mini project dan rekomendasi tindak lanjut</li></ul></article>
+  </div>
+</div>
+</section>
+
+<section id="referensi">
+<div class="wrap">
+  <div class="section-head"><span class="kicker">Learning Standards</span><h2>Referensi &amp; catatan kurikulum</h2><p>Materi disusun dengan mengacu pada dokumentasi resmi Microsoft dan kerangka kompetensi MOS Excel. Referensi berikut menjadi acuan cakupan kompetensi, bukan berarti PMD menyelenggarakan sertifikasi Microsoft.</p></div>
+  <div class="refs">
+    <article class="ref"><h3>Microsoft Support — Tugas dasar di Excel</h3><a href="https://support.microsoft.com/id-id/excel/basic-tasks-in-excel" target="_blank" rel="noopener">Buka dokumentasi Microsoft ↗</a><p>Workbook, rumus sederhana, format angka, tabel, sort/filter, dan grafik dasar.</p></article>
+    <article class="ref"><h3>Microsoft Learn — Excel Associate (MOS)</h3><a href="https://learn.microsoft.com/en-us/credentials/certifications/mos-excel-associate-m365-apps/" target="_blank" rel="noopener">Buka kerangka kompetensi ↗</a><p>Rujukan kompetensi mengelola workbook, cells/ranges, tables, formulas/functions, dan charts.</p></article>
+    <article class="ref"><h3>Microsoft Learn — Excel Expert (MOS)</h3><a href="https://learn.microsoft.com/en-us/credentials/certifications/mos-excel-expert-m365-apps/" target="_blank" rel="noopener">Buka kerangka kompetensi ↗</a><p>Rujukan kompetensi lanjutan: workbook settings, data formatting, advanced formulas, macros, charts, dan tables.</p></article>
+    <article class="ref"><h3>Microsoft Support — PivotTable</h3><a href="https://support.microsoft.com/en-us/excel/get-started/create-a-pivottable-to-analyze-worksheet-data" target="_blank" rel="noopener">Buka panduan PivotTable ↗</a><p>Panduan membuat, mengatur, dan me-refresh PivotTable untuk menganalisis data.</p></article>
+    <article class="ref"><h3>Microsoft Support — Power Query</h3><a href="https://support.microsoft.com/en-us/excel/power-query-for-excel-help" target="_blank" rel="noopener">Buka panduan Power Query ↗</a><p>Dokumentasi koneksi sumber data, transformasi bertahap, pemuatan, dan refresh data.</p></article>
+  </div>
+  <div class="callout warn"><span class="icon">!</span><div><strong>Batasan &amp; asumsi</strong>Fungsi dan fitur tertentu dapat berbeda menurut versi Excel, sistem operasi, lisensi, dan platform (Desktop/Web/Mac). XLOOKUP dan Dynamic Arrays memerlukan versi yang mendukung. VBA/Macro memerlukan Excel Desktop. Sebelum kelas, PMD akan mengonfirmasi aplikasi dan versi yang digunakan peserta.</div></div>
+</div>
+</section>
+
+<section id="custom">
+<div class="wrap">
+  <div class="custom">
+    <span class="eyebrow" style="background:rgba(255,255,255,.16);color:white">CUSTOM LEARNING</span>
+    <h2>Belajar sesuai kebutuhanmu.</h2>
+    <p>Belum yakin harus mulai dari level mana? Ceritakan kemampuan awal, tujuan belajar, dan kebutuhan pekerjaanmu. PMD akan membantu memetakan level, materi, metode, durasi, serta penawaran biaya yang sesuai.</p>
+    <div class="chips"><span>Asesmen kemampuan awal</span><span>Tujuan belajar</span><span>Versi Excel</span><span>Jumlah peserta</span><span>Durasi &amp; jadwal</span><span>Studi kasus pekerjaan</span></div>
+    <div class="cta-row"><a class="btn" style="background:white;color:#167bad" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20konsultasi%20custom%20kelas%20Excel.">Konsultasi dengan PMD ↗</a></div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap footer-inner">
+  <span>© <span id="year"></span> Post Management Data — Master Syllabus</span>
+  <div class="footer-links"><a href="https://wa.me/628217997761" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:postmanagementdata@gmail.com">Email</a><a href="https://www.instagram.com/postmanagementdata/" target="_blank" rel="noopener">Instagram</a><a href="index.html">Website PMD</a></div>
+</div></footer>
+
+<script>
+(function(){
+  "use strict";
+  const root=document.documentElement;
+  const themeBtn=document.getElementById("themeBtn");
+  const storedTheme=localStorage.getItem("pmd-theme");
+  if(storedTheme==="dark"||storedTheme==="light") root.dataset.theme=storedTheme;
+  function syncTheme(){themeBtn.textContent=root.dataset.theme==="dark"?"☀️":"🌙";}
+  syncTheme();
+  themeBtn.addEventListener("click",()=>{
+    root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";
+    localStorage.setItem("pmd-theme",root.dataset.theme);syncTheme();
+  });
+
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+  menuBtn.addEventListener("click",()=>{
+    const open=navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",String(open));
+    menuBtn.textContent=open?"✕":"☰";
+  });
+  navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+    navLinks.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰";
+  }));
+
+  const tabs=[...document.querySelectorAll(".tab")];
+  const panels=[...document.querySelectorAll(".panel")];
+  function activateTab(tab,moveFocus){
+    tabs.forEach(t=>{const active=t===tab;t.classList.toggle("active",active);t.setAttribute("aria-selected",String(active));t.tabIndex=active?0:-1;});
+    panels.forEach(p=>p.classList.toggle("active",p.id===tab.dataset.target));
+    if(moveFocus)tab.focus();
+  }
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener("click",()=>activateTab(tab,false));
+    tab.addEventListener("keydown",e=>{
+      let next=index;
+      if(e.key==="ArrowRight"||e.key==="ArrowDown")next=(index+1)%tabs.length;
+      else if(e.key==="ArrowLeft"||e.key==="ArrowUp")next=(index-1+tabs.length)%tabs.length;
+      else if(e.key==="Home")next=0;
+      else if(e.key==="End")next=tabs.length-1;
+      else return;
+      e.preventDefault();activateTab(tabs[next],true);
+    });
+  });
+  tabs.forEach((t,i)=>t.tabIndex=i===0?0:-1);
+
+  let progress={};
+  try{progress=JSON.parse(localStorage.getItem("pmd-syllabus-progress-v4")||"{}")||{};}catch(e){progress={};}
+  function save(){try{localStorage.setItem("pmd-syllabus-progress-v4",JSON.stringify(progress));}catch(e){}}
+  panels.forEach(panel=>{
+    const items=[...panel.querySelectorAll(".card li")];
+    items.forEach((li,index)=>{
+      const id=panel.id+"-"+index;
+      li.setAttribute("role","checkbox");li.setAttribute("tabindex","0");
+      const done=!!progress[id];li.setAttribute("aria-checked",String(done));
+      function toggle(){
+        const next=li.getAttribute("aria-checked")!=="true";
+        li.setAttribute("aria-checked",String(next));
+        if(next)progress[id]=true;else delete progress[id];
+        save();update(panel);
+      }
+      li.addEventListener("click",toggle);
+      li.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}});
+    });
+    const reset=panel.querySelector(".reset");
+    if(reset)reset.addEventListener("click",()=>{
+      items.forEach((li,index)=>{li.setAttribute("aria-checked","false");delete progress[panel.id+"-"+index];});
+      save();update(panel);
+    });
+    function update(p){
+      const total=p.querySelectorAll(".card li").length;
+      const done=p.querySelectorAll('.card li[aria-checked="true"]').length;
+      const bar=p.querySelector(".progress-bar span");
+      const count=p.querySelector(".progress-meta strong");
+      const totalEl=p.querySelector(".progress-meta .total");
+      if(bar)bar.style.width=(total?done/total*100:0)+"%";
+      if(count)count.textContent=done;
+      if(totalEl)totalEl.textContent=total;
+    }
+    update(panel);
+  });
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
+
