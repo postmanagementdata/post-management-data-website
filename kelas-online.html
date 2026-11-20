@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kelas Excel Online Post Management Data. Belajar Excel melalui Zoom Meeting, private maupun group, dari Basic hingga Advanced.">
+<title>Kelas Excel Online | Post Management Data</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --surface:#ffffff;
+  --soft:#f3f9fc;
+  --ink:#243747;
+  --muted:#647789;
+  --line:#dce8ef;
+  --blue:#218cc1;
+  --blue-dark:#167bad;
+  --blue-soft:#eaf6fc;
+  --yellow:#ffda42;
+  --shadow:0 12px 32px rgba(31,72,96,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.7
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+.container{max-width:1120px;margin:auto;padding:0 22px}
+
+/* NAVIGATION */
+.nav{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{
+  max-width:1160px;margin:auto;padding:12px 22px;
+  display:flex;align-items:center;gap:20px
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:135px;height:auto;object-fit:contain}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:13px;font-weight:700;color:#536879}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .contact-link{
+  background:var(--blue);color:white;padding:11px 18px;
+  border-radius:9px
+}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:white;
+  border-radius:8px;padding:7px 11px;font-size:20px
+}
+
+/* HERO */
+.hero{
+  padding:85px 0 75px;
+  background:radial-gradient(circle at 85% 20%,#eaf6fc 0,transparent 38%)
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:55px;align-items:center
+}
+.eyebrow{
+  display:inline-block;background:var(--blue-soft);
+  color:var(--blue);padding:7px 13px;border-radius:7px;
+  font-size:11px;font-weight:800;letter-spacing:1.3px
+}
+.hero h1{
+  font-size:clamp(38px,5vw,58px);line-height:1.12;
+  letter-spacing:-2px;margin:20px 0
+}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--muted);font-size:16px;max-width:560px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 19px;border-radius:9px;font-size:13px;font-weight:750;
+  transition:.2s
+}
+.btn-primary{background:var(--blue);color:white}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--line);color:var(--ink);background:white}
+.hero-visual{
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:22px;box-shadow:var(--shadow)
+}
+.visual-top{display:flex;justify-content:space-between;align-items:center}
+.visual-label{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--muted)}
+.live{font-size:10px;color:#15966b;font-weight:800}
+.screen{
+  margin-top:18px;background:var(--soft);border-radius:13px;
+  padding:22px;text-align:center
+}
+.zoom-icon{
+  width:60px;height:60px;border-radius:18px;background:#2d8cff;
+  color:white;display:grid;place-items:center;font-size:25px;
+  font-weight:900;margin:0 auto 13px
+}
+.screen h3{margin:5px 0;font-size:20px}
+.screen p{font-size:12px;margin:0 auto;color:var(--muted)}
+.visual-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.visual-tags span{
+  padding:6px 10px;border-radius:7px;background:#fff;
+  border:1px solid var(--line);font-size:10px;font-weight:700
+}
+
+/* GENERAL SECTION */
+section{padding:65px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.kicker{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1.5px}
+.section-head h2{font-size:clamp(26px,4vw,36px);line-height:1.2;margin:8px 0}
+.section-head p{max-width:690px;margin:0 auto;color:var(--muted);font-size:14px}
+.soft-section{background:var(--soft)}
+
+/* CLASS OPTIONS */
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.option-card{
+  padding:27px;border:1px solid var(--line);border-radius:15px;
+  background:white;box-shadow:var(--shadow)
+}
+.option-card.yellow{background:#fff9e4;border-color:#f3e2a0}
+.option-number{
+  font-size:11px;font-weight:800;color:var(--blue);
+  letter-spacing:1px
+}
+.option-card h3{font-size:22px;margin:10px 0 7px}
+.option-card p{font-size:13px;color:var(--muted)}
+.option-card ul{padding-left:18px;color:var(--muted);font-size:13px}
+.option-card li{padding:4px 0}
+.option-card .btn{margin-top:10px}
+
+/* ONLINE METHOD */
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.method-card{
+  padding:23px;border:1px solid var(--line);border-radius:13px;background:white
+}
+.method-icon{
+  width:43px;height:43px;background:var(--blue-soft);color:var(--blue);
+  border-radius:11px;display:grid;place-items:center;font-size:20px
+}
+.method-card h3{font-size:16px;margin:14px 0 5px}
+.method-card p{font-size:13px;color:var(--muted);margin:0}
+
+/* SYLLABUS */
+.syllabus-area{background:#fff}
+.level-tabs{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  background:var(--soft);padding:8px;border-radius:12px;margin-bottom:22px
+}
+.level-tab{
+  border:1px solid transparent;background:transparent;
+  padding:13px;border-radius:9px;text-align:left;color:var(--muted)
+}
+.level-tab strong{display:block;color:var(--ink);font-size:16px}
+.level-tab small{font-size:11px}
+.level-tab.active{
+  background:white;border-color:var(--line);
+  box-shadow:0 3px 10px rgba(0,0,0,.04)
+}
+.level-tab.active strong{color:var(--blue)}
+.level-panel{display:none}
+.level-panel.active{display:block;animation:show .2s ease}
+@keyframes show{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+.level-intro{
+  padding:20px;background:var(--blue-soft);border-radius:12px;
+  margin-bottom:18px
+}
+.level-intro h3{margin:0 0 5px;font-size:21px}
+.level-intro p{margin:0;color:var(--muted);font-size:13px}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.module{
+  border:1px solid var(--line);border-radius:12px;padding:18px;background:white
+}
+.module h4{font-size:14px;margin:0 0 10px}
+.module ul{padding-left:17px;margin:0}
+.module li{font-size:12px;color:var(--muted);padding:4px 0}
+.outcome{
+  margin-top:18px;padding:18px;border:1px solid #b9dfef;
+  background:#f0f9fd;border-radius:12px;font-size:13px;color:#456174
+}
+.outcome strong{color:var(--blue)}
+.syllabus-note{font-size:11px;color:var(--muted);margin-top:15px}
+
+/* CUSTOM */
+.custom-box{
+  background:var(--blue);color:white;border-radius:17px;
+  padding:34px;display:grid;grid-template-columns:1fr auto;
+  gap:20px;align-items:center
+}
+.custom-box h2{font-size:27px;margin:0 0 8px}
+.custom-box p{font-size:13px;color:#e8f5fb;margin:0;max-width:680px}
+.custom-box .btn{background:white;color:var(--blue-dark);white-space:nowrap}
+
+/* FAQ */
+.faq-list{max-width:800px;margin:auto}
+details{border-bottom:1px solid var(--line);padding:17px 3px}
+summary{cursor:pointer;font-size:14px;font-weight:750}
+details p{font-size:13px;color:var(--muted);margin-bottom:0}
+
+/* CTA */
+.final-cta{
+  background:#fff9e4;border:1px solid #f3e2a0;
+  border-radius:16px;padding:35px;text-align:center
+}
+.final-cta h2{font-size:27px;margin:0 0 8px}
+.final-cta p{font-size:13px;color:var(--muted);max-width:600px;margin:0 auto 20px}
+
+/* FOOTER */
+footer{background:#f5f9fc;border-top:1px solid var(--line);padding:30px 0}
+.footer-inner{
+  display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;
+  font-size:12px;color:var(--muted)
+}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--blue)}
+
+@media(max-width:800px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .method-grid{grid-template-columns:1fr}
+  .custom-box{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .nav-inner{flex-wrap:wrap}
+  .menu-btn{display:block;margin-left:auto}
+  .nav-links{
+    display:none;order:3;width:100%;margin:0;
+    flex-direction:column;align-items:stretch;gap:5px
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px}
+  .hero{padding:55px 0}
+  .options,.module-grid{grid-template-columns:1fr}
+  .level-tabs{grid-template-columns:1fr}
+  .level-tab{display:flex;justify-content:space-between;align-items:center}
+  .custom-box{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-pmd.png" alt="Post Management Data">
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Service</a>
+      <a href="portfolio.html">Portofolio</a>
+      <a href="contact.html" class="contact-link">Hubungi Kami</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <span class="eyebrow">01 / ONLINE LEARNING</span>
+    <h1>Belajar Excel dari mana saja. <span>Tanpa takut salah rumus.</span></h1>
+    <p>
+      Belajar Excel secara online bersama tutor melalui Zoom Meeting.
+      Suasananya santai, interaktif, dan langsung praktik.
+      Cocok untuk pemula maupun yang ingin meningkatkan kemampuan Excel
+      untuk kebutuhan pekerjaan.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#pilihan-kelas">Pilih Program Belajar ↓</a>
+      <a class="btn btn-outline" href="#silabus">Lihat Silabus</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="visual-top">
+      <span class="visual-label">POST MANAGEMENT DATA</span>
+      <span class="live">● ONLINE LEARNING</span>
+    </div>
+    <div class="screen">
+      <div class="zoom-icon">Z</div>
+      <h3>Live Excel Class</h3>
+      <p>Belajar, praktik, diskusi, dan tanya jawab langsung bersama tutor.</p>
+      <div class="visual-tags">
+        <span>Live Zoom</span><span>Practice</span><span>Interactive</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PILIHAN KELAS -->
+<section id="pilihan-kelas">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">CHOOSE YOUR CLASS</span>
+    <h2>Pilih cara belajar yang nyaman</h2>
+    <p>
+      Kamu bisa belajar secara privat dengan pendampingan lebih fokus
+      atau mengikuti kelas grup bersama peserta lainnya.
+    </p>
+  </div>
+
+  <div class="options">
+    <article class="option-card yellow">
+      <span class="option-number">01 / PRIVATE LEARNING</span>
+      <h3>Private Class 1-on-1</h3>
+      <p>Satu tutor untuk satu peserta. Materi dan kecepatan belajar disesuaikan dengan kemampuan serta kebutuhanmu.</p>
+      <ul>
+        <li>Fokus pada kebutuhan pribadi</li>
+        <li>Lebih leluasa bertanya</li>
+        <li>Materi dan latihan dapat disesuaikan</li>
+        <li>Jadwal berdasarkan kesepakatan</li>
+        <li>Pendampingan langsung melalui Zoom</li>
+      </ul>
+      <a class="btn btn-primary" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20tertarik%20dengan%20Private%20Excel%20Class%20Online.">Tanya Private Class ↗</a>
+    </article>
+
+    <article class="option-card">
+      <span class="option-number">02 / GROUP LEARNING</span>
+      <h3>Group Class</h3>
+      <p>Belajar bersama teman atau peserta lainnya dalam kelompok kecil dengan suasana yang santai dan interaktif.</p>
+      <ul>
+        <li>Belajar bersama dalam grup</li>
+        <li>Diskusi dan latihan bersama</li>
+        <li>Saling berbagi pengalaman</li>
+        <li>Materi disusun berdasarkan level</li>
+        <li>Jadwal berdasarkan kesepakatan</li>
+      </ul>
+      <a class="btn btn-primary" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20tertarik%20dengan%20Group%20Excel%20Class%20Online.">Tanya Group Class ↗</a>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- METODE -->
+<section class="soft-section" id="metode">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">HOW WE LEARN</span>
+    <h2>Belajar langsung melalui Zoom Meeting</h2>
+    <p>
+      Bukan sekadar menonton materi. Setiap sesi dirancang agar peserta
+      ikut mencoba, memahami, dan mempraktikkan rumus Excel.
+    </p>
+  </div>
+  <div class="method-grid">
+    <article class="method-card">
+      <div class="method-icon">▣</div>
+      <h3>Live Learning</h3>
+      <p>Pertemuan langsung melalui Zoom Meeting dengan penjelasan dan demonstrasi dari tutor.</p>
+    </article>
+    <article class="method-card">
+      <div class="method-icon">⌨</div>
+      <h3>Hands-on Practice</h3>
+      <p>Peserta mengerjakan latihan Excel secara langsung menggunakan file latihan.</p>
+    </article>
+    <article class="method-card">
+      <div class="method-icon">✦</div>
+      <h3>Discussion &amp; Review</h3>
+      <p>Tanya jawab, pembahasan kesalahan, dan review hasil latihan bersama tutor.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- SILABUS -->
+<section id="silabus" class="syllabus-area">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">LEARNING CURRICULUM</span>
+    <h2>Silabus materi pembelajaran</h2>
+    <p>
+      Mulai dari dasar hingga pengolahan data lanjutan.
+      Pilih level yang sesuai dengan kemampuan dan tujuan belajarmu.
+    </p>
+  </div>
+
+  <div class="level-tabs" role="tablist" aria-label="Pilih level silabus">
+    <button class="level-tab active" data-level="basic" role="tab" aria-selected="true">
+      <strong>Basic</strong><small>Fundamental &amp; Data Entry</small>
+    </button>
+    <button class="level-tab" data-level="intermediate" role="tab" aria-selected="false">
+      <strong>Intermediate</strong><small>Data Processing &amp; Analysis</small>
+    </button>
+    <button class="level-tab" data-level="advanced" role="tab" aria-selected="false">
+      <strong>Advanced</strong><small>Automation &amp; Reporting</small>
+    </button>
+  </div>
+
+  <!-- BASIC -->
+  <div class="level-panel active" id="basic" role="tabpanel">
+    <div class="level-intro">
+      <h3>Basic — Fundamental &amp; Data Entry</h3>
+      <p>
+        Untuk pemula yang ingin memahami Excel dari awal,
+        mengelola data, menggunakan rumus dasar, dan membuat laporan sederhana.
+      </p>
+      <p><b>Prasyarat:</b> Mampu menggunakan komputer dan mengelola file dasar.</p>
+    </div>
+
+    <div class="module-grid">
+      <article class="module">
+        <h4>01. Pengenalan Excel &amp; Workbook</h4>
+        <ul>
+          <li>Antarmuka Excel: Ribbon, Formula Bar, Name Box</li>
+          <li>Workbook, Worksheet, Cell, Row, Column, Range</li>
+          <li>Membuat, membuka, dan menyimpan file</li>
+          <li>Mengelola worksheet</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>02. Input &amp; Pengelolaan Data</h4>
+        <ul>
+          <li>Input dan edit data</li>
+          <li>Copy, Paste, AutoFill, Fill Handle</li>
+          <li>Pengaturan lebar kolom dan tinggi baris</li>
+          <li>Referensi sel relatif dan absolut</li>
+          <li>Freeze Panes</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>03. Format &amp; Struktur Tabel</h4>
+        <ul>
+          <li>Format Cells: Number, Date, Currency, Percentage</li>
+          <li>Font, Alignment, Border, Fill</li>
+          <li>Membuat Excel Table</li>
+          <li>Sort dan Filter</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>04. Rumus &amp; Fungsi Dasar</h4>
+        <ul>
+          <li>Operator aritmetika</li>
+          <li>SUM, AVERAGE, MIN, MAX</li>
+          <li>COUNT, COUNTA, COUNTBLANK</li>
+          <li>Referensi relatif dan absolut</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>05. Pengolahan Teks Dasar</h4>
+        <ul>
+          <li>TRIM</li>
+          <li>UPPER, LOWER, PROPER</li>
+          <li>LEFT, RIGHT, MID</li>
+          <li>CONCAT / CONCATENATE</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>06. Visualisasi &amp; Praktik</h4>
+        <ul>
+          <li>Membuat grafik Column, Bar, dan Line</li>
+          <li>Memilih grafik sesuai kebutuhan</li>
+          <li>Memeriksa hasil perhitungan</li>
+          <li>Praktik rekap transaksi sederhana</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="outcome">
+      <strong>Target pembelajaran:</strong>
+      Peserta mampu membuat workbook sederhana, memasukkan dan memformat data,
+      menggunakan fungsi dasar, mengelola tabel, dan membuat grafik sederhana.
+    </div>
+  </div>
+
+  <!-- INTERMEDIATE -->
+  <div class="level-panel" id="intermediate" role="tabpanel">
+    <div class="level-intro">
+      <h3>Intermediate — Data Processing &amp; Analysis</h3>
+      <p>
+        Untuk peserta yang sudah memahami dasar Excel dan ingin mengolah data
+        lebih cepat, menggunakan formula bersyarat, serta membuat laporan analisis.
+      </p>
+      <p><b>Prasyarat:</b> Memahami fungsi dasar, referensi sel, Excel Table, Sort, dan Filter.</p>
+    </div>
+
+    <div class="module-grid">
+      <article class="module">
+        <h4>01. Data Management</h4>
+        <ul>
+          <li>Excel Table dan Structured References</li>
+          <li>Sort dan Filter multi-kriteria</li>
+          <li>Data Validation dan Dropdown List</li>
+          <li>Conditional Formatting</li>
+          <li>Remove Duplicates dan Text to Columns</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>02. Logical Functions</h4>
+        <ul>
+          <li>IF</li>
+          <li>AND dan OR</li>
+          <li>IFS</li>
+          <li>IFERROR</li>
+          <li>Kombinasi formula logika</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>03. Conditional Functions</h4>
+        <ul>
+          <li>SUMIF dan SUMIFS</li>
+          <li>COUNTIF dan COUNTIFS</li>
+          <li>AVERAGEIF dan AVERAGEIFS</li>
+          <li>Analisis dengan satu atau banyak kriteria</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>04. Lookup &amp; Data Matching</h4>
+        <ul>
+          <li>VLOOKUP dan HLOOKUP</li>
+          <li>XLOOKUP pada versi yang mendukung</li>
+          <li>Exact Match</li>
+          <li>Mencocokkan data antar tabel</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>05. Text &amp; Date Functions</h4>
+        <ul>
+          <li>LEFT, RIGHT, MID, LEN, TRIM</li>
+          <li>PROPER dan CONCAT</li>
+          <li>DATE, TODAY, DAY, MONTH, YEAR</li>
+          <li>Standarisasi data teks dan tanggal</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>06. Analysis &amp; Reporting</h4>
+        <ul>
+          <li>PivotTable</li>
+          <li>Grouping dan Filtering</li>
+          <li>PivotChart dan Slicer</li>
+          <li>Praktik laporan penjualan atau operasional</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="outcome">
+      <strong>Target pembelajaran:</strong>
+      Peserta mampu mengelola dataset, menggunakan formula berdasarkan kriteria,
+      mencocokkan data antar tabel, serta membuat ringkasan dengan PivotTable.
+    </div>
+  </div>
+
+  <!-- ADVANCED -->
+  <div class="level-panel" id="advanced" role="tabpanel">
+    <div class="level-intro">
+      <h3>Advanced — Automation &amp; Business Reporting</h3>
+      <p>
+        Untuk peserta yang ingin meningkatkan efisiensi pengolahan data,
+        membangun proses transformasi, dan menyusun laporan yang lebih kompleks.
+      </p>
+      <p><b>Prasyarat:</b> Menguasai formula logika, conditional functions, lookup, dan PivotTable dasar.</p>
+    </div>
+
+    <div class="module-grid">
+      <article class="module">
+        <h4>01. Advanced Formulas</h4>
+        <ul>
+          <li>INDEX dan MATCH</li>
+          <li>Nested Functions</li>
+          <li>FILTER, UNIQUE, SORT</li>
+          <li>EOMONTH dan NETWORKDAYS</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>02. Power Query</h4>
+        <ul>
+          <li>Import data dari berbagai sumber</li>
+          <li>Change Data Type</li>
+          <li>Remove Columns, Split, Merge</li>
+          <li>Append Queries dan Merge Queries</li>
+          <li>Load dan Refresh Query</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>03. Advanced Reporting</h4>
+        <ul>
+          <li>PivotTable dan PivotChart lanjutan</li>
+          <li>Dashboard Layout</li>
+          <li>KPI dan analisis tren</li>
+          <li>Desain laporan yang mudah dibaca</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>04. Workbook &amp; Automation</h4>
+        <ul>
+          <li>Proteksi Worksheet dan Workbook</li>
+          <li>Named Ranges</li>
+          <li>Macro Recorder</li>
+          <li>Pengantar VBA sebagai modul opsional</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>05. Data Quality &amp; Workflow</h4>
+        <ul>
+          <li>Validasi konsistensi data</li>
+          <li>Alur data mentah hingga laporan</li>
+          <li>Dokumentasi transformasi data</li>
+          <li>Prosedur refresh dan validasi output</li>
+        </ul>
+      </article>
+      <article class="module">
+        <h4>06. Capstone Project</h4>
+        <ul>
+          <li>Mengolah dataset dari beberapa sumber</li>
+          <li>Membangun transformasi dengan Power Query</li>
+          <li>Membuat laporan dan dashboard</li>
+          <li>Presentasi hasil analisis</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="outcome">
+      <strong>Target pembelajaran:</strong>
+      Peserta mampu membangun alur pengolahan data yang lebih terstruktur,
+      melakukan transformasi dengan Power Query, dan menghasilkan laporan
+      operasional yang dapat diperbarui.
+    </div>
+    <p class="syllabus-note">
+      Catatan: XLOOKUP dan Dynamic Arrays memerlukan versi Excel yang mendukung.
+      Ketersediaan Power Query berbeda menurut platform. VBA/Macro memerlukan Excel Desktop.
+    </p>
+  </div>
+
+  <p class="syllabus-note">
+    Silabus merupakan kurikulum internal Post Management Data.
+    Materi, urutan pembelajaran, dan kedalaman pembahasan dapat disesuaikan
+    berdasarkan asesmen kemampuan awal dan kebutuhan peserta.
+  </p>
+
+  <div class="cta-row" style="text-align:center;margin-top:25px;justify-content:center">
+    <a class="btn btn-primary" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20konsultasi%20silabus%20kelas%20Excel%20online.">
+      Konsultasi Silabus ↗
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- CUSTOM LEARNING -->
+<section class="soft-section" id="custom">
+<div class="container">
+  <div class="custom-box">
+    <div>
+      <span class="eyebrow" style="background:rgba(255,255,255,.17);color:white">CUSTOM LEARNING</span>
+      <h2>Materi bisa disesuaikan dengan kebutuhanmu.</h2>
+      <p>
+        Tidak harus mengikuti seluruh materi dalam satu level.
+        Jika kamu memiliki kebutuhan khusus untuk pekerjaan, kita bisa
+        fokus pada formula, data cleaning, reporting, atau analisis data.
+        Kita diskusikan dulu kebutuhan dan target belajarmu.
+      </p>
+    </div>
+    <a class="btn" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20custom%20materi%20kelas%20Excel%20online.">
+      Custom Materi ↗
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">FREQUENTLY ASKED QUESTIONS</span>
+    <h2>Pertanyaan yang sering ditanyakan</h2>
+    <p>Beberapa hal yang mungkin ingin kamu ketahui sebelum mengikuti kelas.</p>
+  </div>
+
+  <div class="faq-list">
+    <details>
+      <summary>Apakah kelas ini cocok untuk pemula?</summary>
+      <p>Ya. Kamu dapat memulai dari Basic tanpa harus memiliki pengalaman menggunakan rumus Excel sebelumnya.</p>
+    </details>
+    <details>
+      <summary>Apakah kelas dilakukan melalui Zoom?</summary>
+      <p>Ya. Kelas online dilakukan melalui Zoom Meeting dengan penjelasan, demonstrasi, praktik, dan tanya jawab langsung bersama tutor.</p>
+    </details>
+    <details>
+      <summary>Apakah saya mendapatkan file latihan?</summary>
+      <p>File latihan dapat disiapkan sesuai materi dan kebutuhan pembelajaran yang disepakati.</p>
+    </details>
+    <details>
+      <summary>Apakah materi bisa disesuaikan dengan pekerjaan saya?</summary>
+      <p>Bisa. Materi dapat difokuskan pada kebutuhan administrasi, operasional, procurement, HR, reporting, maupun pengolahan data lainnya.</p>
+    </details>
+    <details>
+      <summary>Bagaimana dengan biaya dan jadwal kelas?</summary>
+      <p>Biaya dan jadwal dibicarakan terlebih dahulu melalui konsultasi WhatsApp. Penawaran disesuaikan dengan format kelas, jumlah peserta, durasi, dan materi.</p>
+    </details>
+  </div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+<div class="container">
+  <div class="final-cta">
+    <span class="kicker">LET'S START LEARNING</span>
+    <h2>Siap meningkatkan skill Excel-mu?</h2>
+    <p>
+      Tidak perlu takut salah rumus. Mulai dari level yang sesuai,
+      belajar dengan santai, dan praktik bersama Post Management Data.
+    </p>
+    <a class="btn btn-primary" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20tertarik%20mengikuti%20kelas%20Excel%20online.">
+      Hubungi Kami via WhatsApp ↗
+    </a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-inner">
+  <span>© <span id="year"></span> Post Management Data. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Service</a>
+    <a href="portfolio.html">Portofolio</a>
+    <a href="https://www.instagram.com/postmanagementdata/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
+</footer>
+
+<script>
+(function(){
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click",function(){
+    const open=navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",String(open));
+    menuBtn.textContent=open?"✕":"☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(){
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      menuBtn.textContent="☰";
+    });
+  });
+
+  const tabs=document.querySelectorAll(".level-tab");
+  const panels=document.querySelectorAll(".level-panel");
+
+  tabs.forEach(function(tab){
+    tab.addEventListener("click",function(){
+      const target=tab.dataset.level;
+
+      tabs.forEach(function(item){
+        const active=item===tab;
+        item.classList.toggle("active",active);
+        item.setAttribute("aria-selected",String(active));
+      });
+
+      panels.forEach(function(panel){
+        panel.classList.toggle("active",panel.id===target);
+      });
+    });
+  });
+
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
