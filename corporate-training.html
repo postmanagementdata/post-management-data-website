@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Corporate Excel dan Spreadsheet Training dari Post Management Data. Pelatihan Excel untuk perusahaan dengan materi dan studi kasus sesuai kebutuhan tim.">
+<title>Corporate Training | Post Management Data</title>
+
+<style>
+:root{
+  --bg:#fff;
+  --soft:#f3f9fc;
+  --ink:#243747;
+  --muted:#647789;
+  --line:#dce8ef;
+  --blue:#218cc1;
+  --blue-dark:#167bad;
+  --blue-soft:#eaf6fc;
+  --yellow:#ffda42;
+  --shadow:0 12px 32px rgba(31,72,96,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.7
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+.container{max-width:1120px;margin:auto;padding:0 22px}
+
+/* NAVIGATION */
+.nav{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{
+  max-width:1160px;margin:auto;padding:12px 22px;
+  display:flex;align-items:center;gap:20px
+}
+.logo img{width:135px;height:auto;object-fit:contain;display:block}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:13px;font-weight:700;color:#536879}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .contact-link{background:var(--blue);color:#fff;padding:11px 18px;border-radius:9px}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:#fff;
+  border-radius:8px;padding:7px 11px;font-size:20px
+}
+
+/* HERO */
+.hero{
+  padding:85px 0 75px;
+  background:radial-gradient(circle at 85% 20%,#eaf6fc 0,transparent 38%)
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:55px;align-items:center
+}
+.eyebrow{
+  display:inline-block;background:var(--blue-soft);
+  color:var(--blue);padding:7px 13px;border-radius:7px;
+  font-size:11px;font-weight:800;letter-spacing:1.3px
+}
+.hero h1{
+  font-size:clamp(38px,5vw,58px);line-height:1.12;
+  letter-spacing:-2px;margin:20px 0
+}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--muted);font-size:16px;max-width:560px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 19px;border-radius:9px;font-size:13px;font-weight:750;
+  transition:.2s
+}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--line);color:var(--ink);background:#fff}
+.hero-visual{
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:22px;box-shadow:var(--shadow)
+}
+.visual-top{display:flex;justify-content:space-between;align-items:center}
+.visual-label{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--muted)}
+.live{font-size:10px;color:#15966b;font-weight:800}
+.screen{
+  margin-top:18px;background:var(--soft);border-radius:13px;padding:22px
+}
+.screen-head{display:flex;align-items:center;justify-content:space-between}
+.screen-icon{
+  width:48px;height:48px;background:var(--yellow);color:#745b00;
+  border-radius:13px;display:grid;place-items:center;font-size:23px
+}
+.screen h3{font-size:19px;margin:15px 0 4px}
+.screen p{font-size:12px;margin:0;color:var(--muted)}
+.team-list{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.team-item{
+  background:#fff;border:1px solid var(--line);border-radius:9px;
+  padding:12px 5px;text-align:center;font-size:10px;font-weight:700
+}
+
+/* GENERAL */
+section{padding:65px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.kicker{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1.5px}
+.section-head h2{font-size:clamp(26px,4vw,36px);line-height:1.2;margin:8px 0}
+.section-head p{max-width:720px;margin:0 auto;color:var(--muted);font-size:14px}
+.soft-section{background:var(--soft)}
+
+/* AUDIENCE */
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.audience-card{
+  border:1px solid var(--line);border-radius:13px;padding:23px;background:#fff
+}
+.audience-icon{
+  width:43px;height:43px;background:var(--blue-soft);color:var(--blue);
+  border-radius:11px;display:grid;place-items:center;font-size:20px
+}
+.audience-card h3{font-size:16px;margin:14px 0 5px}
+.audience-card p{font-size:13px;color:var(--muted);margin:0}
+
+/* PROGRAM */
+.program-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+.program-card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px
+}
+.program-card.yellow{background:#fff9e4;border-color:#f3e2a0}
+.program-card h3{font-size:19px;margin:8px 0}
+.program-card p{font-size:13px;color:var(--muted)}
+.program-card ul{padding-left:18px;color:var(--muted);font-size:13px}
+.program-card li{padding:4px 0}
+.program-label{font-size:10px;font-weight:800;color:var(--blue);letter-spacing:1px}
+
+/* TRAINING PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.process-card{
+  border:1px solid var(--line);background:#fff;border-radius:12px;padding:19px
+}
+.process-number{font-size:12px;font-weight:800;color:var(--blue)}
+.process-card h3{font-size:15px;margin:9px 0 5px}
+.process-card p{font-size:12px;color:var(--muted);margin:0}
+
+/* CURRICULUM */
+.curriculum{
+  background:#fff;border:1px solid var(--line);border-radius:15px;
+  padding:25px;box-shadow:var(--shadow)
+}
+.curriculum-head{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:15px;flex-wrap:wrap;margin-bottom:20px
+}
+.curriculum-head h3{margin:0;font-size:21px}
+.session{
+  display:grid;grid-template-columns:100px 1fr;gap:18px;
+  padding:19px 0;border-top:1px solid var(--line)
+}
+.session-tag{
+  background:var(--blue-soft);color:var(--blue);border-radius:9px;
+  padding:9px 10px;text-align:center;font-size:11px;font-weight:800;
+  align-self:start
+}
+.session h4{margin:0 0 5px;font-size:15px}
+.session p{margin:0;color:var(--muted);font-size:13px}
+.session ul{margin:7px 0 0;padding-left:18px;color:var(--muted);font-size:12px}
+.session li{padding:2px 0}
+.curriculum-note{
+  background:#fff9e4;border:1px solid #f3e2a0;border-radius:10px;
+  padding:15px;font-size:12px;color:#6f6237;margin-top:18px
+}
+
+/* CUSTOM */
+.custom-box{
+  background:var(--blue);color:#fff;border-radius:17px;
+  padding:34px;display:grid;grid-template-columns:1fr auto;
+  gap:20px;align-items:center
+}
+.custom-box h2{font-size:27px;margin:0 0 8px}
+.custom-box p{font-size:13px;color:#e8f5fb;margin:0;max-width:680px}
+.custom-box .btn{background:#fff;color:var(--blue-dark);white-space:nowrap}
+
+/* FAQ & CTA */
+.faq-list{max-width:800px;margin:auto}
+details{border-bottom:1px solid var(--line);padding:17px 3px}
+summary{cursor:pointer;font-size:14px;font-weight:750}
+details p{font-size:13px;color:var(--muted);margin-bottom:0}
+.final-cta{
+  background:#fff9e4;border:1px solid #f3e2a0;
+  border-radius:16px;padding:35px;text-align:center
+}
+.final-cta h2{font-size:27px;margin:0 0 8px}
+.final-cta p{font-size:13px;color:var(--muted);max-width:650px;margin:0 auto 20px}
+
+/* FOOTER */
+footer{background:#f5f9fc;border-top:1px solid var(--line);padding:30px 0}
+.footer-inner{
+  display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;
+  font-size:12px;color:var(--muted)
+}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--blue)}
+
+@media(max-width:800px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .audience-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .custom-box{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .nav-inner{flex-wrap:wrap}
+  .menu-btn{display:block;margin-left:auto}
+  .nav-links{
+    display:none;order:3;width:100%;margin:0;
+    flex-direction:column;align-items:stretch;gap:5px
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px}
+  .hero{padding:55px 0}
+  .program-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .session{grid-template-columns:1fr;gap:9px}
+  .session-tag{justify-self:start}
+  .custom-box{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-pmd.png" alt="Post Management Data">
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Service</a>
+      <a href="portfolio.html">Portofolio</a>
+      <a href="contact.html" class="contact-link">Hubungi Kami</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <span class="eyebrow">03 / FOR TEAMS &amp; ORGANIZATIONS</span>
+    <h1>Upgrade skill tim. <span>Optimalkan pekerjaan.</span></h1>
+    <p>
+      Program Corporate Training Excel &amp; Spreadsheet untuk perusahaan
+      dan organisasi yang ingin meningkatkan kemampuan karyawan dalam
+      mengelola data, membuat laporan, dan bekerja lebih efektif.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#program">Lihat Program Training ↓</a>
+      <a class="btn btn-outline" href="#kurikulum">Lihat Kurikulum</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="visual-top">
+      <span class="visual-label">POST MANAGEMENT DATA</span>
+      <span class="live">● CORPORATE LEARNING</span>
+    </div>
+    <div class="screen">
+      <div class="screen-head">
+        <div class="screen-icon">▦</div>
+        <span style="font-size:10px;font-weight:800;color:#15966b">TEAM DEVELOPMENT</span>
+      </div>
+      <h3>Corporate Excel Training</h3>
+      <p>Practical learning for better data management and reporting.</p>
+      <div class="team-list">
+        <div class="team-item">Excel Basic</div>
+        <div class="team-item">Data Analysis</div>
+        <div class="team-item">Reporting</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- AUDIENCE -->
+<section>
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">WHO IS IT FOR?</span>
+    <h2>Pelatihan untuk kebutuhan tim</h2>
+    <p>
+      Program dapat diterapkan untuk karyawan dari berbagai fungsi
+      yang menggunakan Excel atau spreadsheet dalam aktivitas pekerjaan.
+    </p>
+  </div>
+  <div class="audience-grid">
+    <article class="audience-card">
+      <div class="audience-icon">▤</div>
+      <h3>Administration &amp; General Affairs</h3>
+      <p>Pengelolaan database, rekap dokumen, inventaris, dan laporan administrasi.</p>
+    </article>
+    <article class="audience-card">
+      <div class="audience-icon">▦</div>
+      <h3>Finance &amp; Procurement</h3>
+      <p>Rekap transaksi, monitoring pembelian, pengolahan data, dan pelaporan.</p>
+    </article>
+    <article class="audience-card">
+      <div class="audience-icon">▧</div>
+      <h3>HR &amp; Operational Teams</h3>
+      <p>Pengelolaan data karyawan, monitoring aktivitas, dan laporan operasional.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- PROGRAM -->
+<section class="soft-section" id="program">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">TRAINING FORMAT</span>
+    <h2>Program pelatihan yang fleksibel</h2>
+    <p>
+      Materi, durasi, metode, dan jumlah peserta dapat dirancang
+      berdasarkan kebutuhan perusahaan.
+    </p>
+  </div>
+
+  <div class="program-grid">
+    <article class="program-card yellow">
+      <span class="program-label">01 / FOUNDATIONAL TRAINING</span>
+      <h3>Excel Basic — Fundamental &amp; Data Entry</h3>
+      <p>Untuk karyawan yang membutuhkan pemahaman dasar Excel dan pengelolaan data yang rapi.</p>
+      <ul>
+        <li>Pengenalan workbook dan worksheet</li>
+        <li>Input dan format data</li>
+        <li>Rumus dan fungsi dasar</li>
+        <li>Sort, Filter, dan pengelolaan tabel</li>
+        <li>Grafik dan laporan sederhana</li>
+      </ul>
+    </article>
+
+    <article class="program-card">
+      <span class="program-label">02 / INTERMEDIATE TRAINING</span>
+      <h3>Excel Intermediate — Data Processing</h3>
+      <p>Untuk tim yang telah memahami dasar Excel dan ingin meningkatkan kemampuan pengolahan data.</p>
+      <ul>
+        <li>Formula logika dan bersyarat</li>
+        <li>Lookup dan pencocokan data</li>
+        <li>Data cleaning dan data validation</li>
+        <li>PivotTable dan PivotChart</li>
+        <li>Reporting dan analisis data</li>
+      </ul>
+    </article>
+
+    <article class="program-card">
+      <span class="program-label">03 / ADVANCED TRAINING</span>
+      <h3>Excel Advanced — Automation &amp; Reporting</h3>
+      <p>Untuk tim yang ingin meningkatkan efisiensi pengolahan data dan pelaporan.</p>
+      <ul>
+        <li>Advanced formulas</li>
+        <li>Power Query dan transformasi data</li>
+        <li>Dashboard dan KPI reporting</li>
+        <li>Otomatisasi proses pengolahan data</li>
+        <li>Studi kasus dan project akhir</li>
+      </ul>
+    </article>
+
+    <article class="program-card">
+      <span class="program-label">04 / CUSTOM PROGRAM</span>
+      <h3>Custom Corporate Training</h3>
+      <p>Program yang disusun berdasarkan kebutuhan, tingkat kemampuan, dan alur kerja perusahaan.</p>
+      <ul>
+        <li>Analisis kebutuhan pelatihan</li>
+        <li>Materi sesuai fungsi atau divisi</li>
+        <li>Studi kasus dari proses pekerjaan</li>
+        <li>Penyesuaian durasi dan metode</li>
+        <li>Evaluasi hasil pembelajaran</li>
+      </ul>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="proses">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">HOW IT WORKS</span>
+    <h2>Alur pelaksanaan training</h2>
+    <p>
+      Setiap program diawali dengan diskusi agar pelatihan
+      relevan dengan kebutuhan perusahaan.
+    </p>
+  </div>
+  <div class="process-grid">
+    <article class="process-card">
+      <span class="process-number">STEP 01</span>
+      <h3>Needs Assessment</h3>
+      <p>Diskusi kebutuhan, target, kemampuan awal peserta, dan tantangan pekerjaan.</p>
+    </article>
+    <article class="process-card">
+      <span class="process-number">STEP 02</span>
+      <h3>Program Design</h3>
+      <p>Penyusunan silabus, durasi, metode, latihan, dan studi kasus.</p>
+    </article>
+    <article class="process-card">
+      <span class="process-number">STEP 03</span>
+      <h3>Training Delivery</h3>
+      <p>Pelaksanaan pelatihan dengan demonstrasi, praktik, dan diskusi.</p>
+    </article>
+    <article class="process-card">
+      <span class="process-number">STEP 04</span>
+      <h3>Evaluation</h3>
+      <p>Evaluasi pemahaman dan hasil latihan berdasarkan tujuan pembelajaran.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="soft-section" id="kurikulum">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">SAMPLE CURRICULUM</span>
+    <h2>Contoh kurikulum Corporate Excel Training</h2>
+    <p>
+      Berikut contoh struktur pelatihan 8 sesi yang dapat digunakan
+      sebagai dasar penyusunan program perusahaan.
+    </p>
+  </div>
+
+  <div class="curriculum">
+    <div class="curriculum-head">
+      <h3>Corporate Excel Training — 8 Sessions</h3>
+      <span class="eyebrow">SAMPLE PROGRAM</span>
+    </div>
+
+    <article class="session">
+      <div class="session-tag">SESSION 01</div>
+      <div>
+        <h4>Excel Fundamentals &amp; Data Entry</h4>
+        <p>Memahami lingkungan kerja Excel dan teknik input data yang terstruktur.</p>
+        <ul>
+          <li>Workbook, Worksheet, Cell, Range</li>
+          <li>Input data, format cells, dan referensi sel</li>
+          <li>Sort, Filter, dan Freeze Panes</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 02</div>
+      <div>
+        <h4>Basic Formulas &amp; Functions</h4>
+        <p>Menggunakan rumus dasar untuk kebutuhan perhitungan dan rekap data.</p>
+        <ul>
+          <li>SUM, AVERAGE, MIN, MAX</li>
+          <li>COUNT, COUNTA, COUNTBLANK</li>
+          <li>Relative dan Absolute References</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 03</div>
+      <div>
+        <h4>Text, Date &amp; Data Cleaning</h4>
+        <p>Membersihkan dan menstandarkan data sebelum digunakan dalam laporan.</p>
+        <ul>
+          <li>TRIM, CLEAN, PROPER, UPPER, LOWER</li>
+          <li>LEFT, RIGHT, MID, CONCAT</li>
+          <li>Pengolahan tanggal dan format data</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 04</div>
+      <div>
+        <h4>Logical &amp; Conditional Functions</h4>
+        <p>Membuat perhitungan otomatis berdasarkan kondisi tertentu.</p>
+        <ul>
+          <li>IF, AND, OR, IFS, IFERROR</li>
+          <li>SUMIF, SUMIFS</li>
+          <li>COUNTIF, COUNTIFS</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 05</div>
+      <div>
+        <h4>Lookup &amp; Dynamic Data Processing</h4>
+        <p>Mengambil dan menggabungkan informasi dari beberapa tabel.</p>
+        <ul>
+          <li>VLOOKUP, HLOOKUP, XLOOKUP</li>
+          <li>INDEX dan MATCH sebagai materi lanjutan</li>
+          <li>FILTER dan pengolahan multi-kriteria</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 06</div>
+      <div>
+        <h4>Data Analysis with PivotTable</h4>
+        <p>Menyusun ringkasan dan analisis data untuk kebutuhan laporan.</p>
+        <ul>
+          <li>Membuat dan mengelola PivotTable</li>
+          <li>Grouping, filtering, dan calculated summaries</li>
+          <li>PivotChart dan Slicer</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 07</div>
+      <div>
+        <h4>Reporting &amp; Dashboard Fundamentals</h4>
+        <p>Menyajikan informasi penting melalui laporan dan visualisasi.</p>
+        <ul>
+          <li>Menentukan KPI dan indikator laporan</li>
+          <li>Membuat grafik dan ringkasan visual</li>
+          <li>Dashboard sederhana sesuai kebutuhan pekerjaan</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="session">
+      <div class="session-tag">SESSION 08</div>
+      <div>
+        <h4>Case Study &amp; Final Practice</h4>
+        <p>Menerapkan materi yang dipelajari melalui kasus pekerjaan.</p>
+        <ul>
+          <li>Praktik pengolahan dataset</li>
+          <li>Penyusunan laporan akhir</li>
+          <li>Review, evaluasi, dan pembahasan hasil</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="curriculum-note">
+      <strong>Catatan:</strong> Ini adalah contoh kurikulum 8 sesi, bukan
+      paket baku untuk semua perusahaan. Urutan materi, durasi setiap sesi,
+      tingkat kesulitan, dan studi kasus dapat diubah setelah kebutuhan
+      perusahaan didiskusikan. Formula yang membutuhkan versi Excel tertentu
+      akan disesuaikan dengan perangkat peserta.
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CUSTOM -->
+<section>
+<div class="container">
+  <div class="custom-box">
+    <div>
+      <span class="eyebrow" style="background:rgba(255,255,255,.17);color:white">TAILORED FOR YOUR TEAM</span>
+      <h2>Materi training disesuaikan dengan kebutuhan perusahaan.</h2>
+      <p>
+        Setiap perusahaan memiliki alur kerja dan kebutuhan data yang berbeda.
+        Kami dapat mendiskusikan materi, durasi, jumlah peserta, metode
+        pembelajaran, dan studi kasus yang relevan dengan pekerjaan tim.
+      </p>
+    </div>
+    <a class="btn" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20berdiskusi%20tentang%20Corporate%20Excel%20Training.">
+      Diskusikan Training ↗
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">FREQUENTLY ASKED QUESTIONS</span>
+    <h2>Pertanyaan yang sering ditanyakan</h2>
+    <p>Informasi awal untuk perusahaan yang ingin mengadakan pelatihan.</p>
+  </div>
+
+  <div class="faq-list">
+    <details>
+      <summary>Apakah materi dapat disesuaikan dengan kebutuhan divisi?</summary>
+      <p>Bisa. Materi dapat disusun berdasarkan kebutuhan administrasi, finance, procurement, HR, operasional, maupun fungsi lain yang menggunakan spreadsheet.</p>
+    </details>
+    <details>
+      <summary>Apakah training dapat dilakukan secara online maupun offline?</summary>
+      <p>Metode pelaksanaan dapat didiskusikan berdasarkan kebutuhan perusahaan, ketersediaan peserta, lokasi, dan jadwal.</p>
+    </details>
+    <details>
+      <summary>Berapa jumlah peserta dalam satu kelas?</summary>
+      <p>Jumlah peserta dibicarakan saat konsultasi. Format kelas dan kebutuhan pendampingan dapat disesuaikan dengan jumlah peserta.</p>
+    </details>
+    <details>
+      <summary>Apakah perusahaan bisa menggunakan data pekerjaan sendiri?</summary>
+      <p>Studi kasus dapat disesuaikan dengan proses pekerjaan. Penggunaan data perusahaan perlu disepakati terlebih dahulu, termasuk izin, kerahasiaan, dan penghapusan informasi sensitif.</p>
+    </details>
+    <details>
+      <summary>Bagaimana mendapatkan proposal dan penawaran biaya?</summary>
+      <p>Hubungi Post Management Data untuk mendiskusikan kebutuhan pelatihan. Proposal dan penawaran dapat disusun berdasarkan materi, durasi, jumlah peserta, metode, serta lokasi.</p>
+    </details>
+  </div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+<div class="container">
+  <div class="final-cta">
+    <span class="kicker">LET'S DEVELOP YOUR TEAM</span>
+    <h2>Rencanakan training untuk tim perusahaanmu.</h2>
+    <p>
+      Diskusikan kebutuhan pelatihan bersama Post Management Data.
+      Kita susun program yang relevan dengan pekerjaan dan target
+      pengembangan kemampuan tim.
+    </p>
+    <a class="btn btn-primary" href="https://wa.me/628217997761?text=Halo%20PMD%2C%20kami%20ingin%20mendiskusikan%20Corporate%20Excel%20Training.">
+      Konsultasi Corporate Training ↗
+    </a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-inner">
+  <span>© <span id="year"></span> Post Management Data. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Service</a>
+    <a href="portfolio.html">Portofolio</a>
+    <a href="https://www.instagram.com/postmanagementdata/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
+</footer>
+
+<script>
+(function(){
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click",function(){
+    const open=navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",String(open));
+    menuBtn.textContent=open?"✕":"☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(){
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      menuBtn.textContent="☰";
+    });
+  });
+
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
