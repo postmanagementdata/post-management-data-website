@@ -2,199 +2,234 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hubungi Kami | Post Management Data</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hubungi Post Management Data untuk kelas Excel, corporate training, dan jasa pengolahan data.">
+<title>Hubungi Kami | Post Management Data</title>
 
-  <style>
-    .contact-hero {
-      background: #eef8fc;
-      text-align: center;
-      padding: 65px 20px 45px;
-    }
+<style>
+:root{
+  --ink:#243747;
+  --muted:#647789;
+  --line:#dce8ef;
+  --blue:#218cc1;
+  --blue-dark:#167bad;
+  --blue-soft:#eaf6fc;
+  --yellow:#ffda42;
+  --soft:#f3f9fc;
+  --shadow:0 12px 32px rgba(31,72,96,.07);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.7
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:1120px;margin:auto;padding:0 22px}
 
-    .contact-hero h1 {
-      color: #176f9d;
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 14px;
-    }
+/* NAVIGATION */
+.nav{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{
+  max-width:1160px;margin:auto;padding:12px 22px;
+  display:flex;align-items:center;gap:20px
+}
+.logo img{width:135px;height:auto;display:block}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:13px;font-weight:700;color:#536879}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .contact-link{
+  background:var(--blue);color:#fff;padding:11px 18px;border-radius:9px
+}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:#fff;
+  border-radius:8px;padding:7px 11px;font-size:20px
+}
 
-    .contact-hero p {
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.8;
-      color: #52616a;
-    }
+/* HERO */
+.hero{
+  padding:75px 0 55px;text-align:center;
+  background:radial-gradient(circle at 50% 0%,#eaf6fc 0,transparent 65%)
+}
+.eyebrow{
+  display:inline-block;background:var(--blue-soft);color:var(--blue);
+  padding:7px 13px;border-radius:7px;font-size:11px;
+  font-weight:800;letter-spacing:1.3px
+}
+.hero h1{
+  font-size:clamp(35px,5vw,52px);line-height:1.15;
+  letter-spacing:-1.5px;margin:18px 0
+}
+.hero h1 span{color:var(--blue)}
+.hero p{
+  max-width:700px;margin:auto;color:var(--muted);font-size:15px
+}
 
-    .contact-container {
-      max-width: 1050px;
-      margin: auto;
-      padding: 50px 20px 70px;
-    }
+/* CONTACT CARDS */
+.contact-section{padding:45px 0 65px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contact-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:28px 23px;text-align:center;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;
+  align-items:center
+}
+.contact-icon{
+  width:58px;height:58px;display:grid;place-items:center;
+  border-radius:15px;background:var(--blue-soft);
+  font-size:27px;margin-bottom:15px
+}
+.contact-card h2{font-size:20px;margin:0 0 8px}
+.contact-card p{
+  color:var(--muted);font-size:13px;margin:0 0 19px;
+  flex:1
+}
+.contact-button{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--blue);color:#fff;padding:11px 17px;
+  border-radius:8px;font-size:13px;font-weight:750;
+  border:0;cursor:pointer
+}
+.contact-button:hover{background:var(--blue-dark)}
+.copy-button{
+  margin-top:9px;background:#fff;color:var(--blue);
+  border:1px solid var(--line)
+}
+.copy-button:hover{background:var(--blue-soft);color:var(--blue-dark)}
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+/* INFORMATION */
+.info-box{
+  margin-top:30px;padding:26px 28px;
+  background:#fff9e4;border:1px solid #f3e2a0;
+  border-radius:13px
+}
+.info-box h2{font-size:19px;color:#765b00;margin:0 0 12px}
+.info-box p{font-size:13px;color:#665b36;margin:7px 0}
 
-    .contact-card {
-      padding: 28px 22px;
-      border: 1px solid #e5edf1;
-      border-radius: 16px;
-      background: white;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(20, 70, 95, .06);
-    }
+/* CTA */
+.cta{padding:0 0 70px}
+.cta-box{
+  background:var(--blue);color:#fff;text-align:center;
+  padding:40px 25px;border-radius:17px
+}
+.cta-box h2{font-size:27px;margin:0 0 8px}
+.cta-box p{
+  max-width:650px;margin:0 auto 20px;
+  color:#e8f5fb;font-size:13px
+}
+.cta-button{
+  display:inline-block;background:var(--yellow);
+  color:#17445b;padding:12px 20px;border-radius:9px;
+  font-size:13px;font-weight:800
+}
+.cta-button:hover{filter:brightness(.96)}
 
-    .contact-icon {
-      width: 58px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: #eaf5fa;
-      font-size: 27px;
-    }
+/* FOOTER */
+footer{
+  background:#f5f9fc;border-top:1px solid var(--line);
+  padding:25px 0
+}
+.footer-inner{
+  display:flex;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;font-size:12px;color:var(--muted)
+}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--blue)}
 
-    .contact-card h2 {
-      color: #176f9d;
-      font-size: 19px;
-      margin-bottom: 10px;
-    }
-
-    .contact-card p {
-      color: #64727a;
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 18px;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-button {
-      display: inline-block;
-      padding: 11px 17px;
-      background: #218cc1;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .contact-button:hover {
-      background: #176f9d;
-    }
-
-    .contact-info {
-      margin-top: 35px;
-      padding: 28px;
-      background: #fff8d9;
-      border-left: 5px solid #ffda42;
-      border-radius: 12px;
-    }
-
-    .contact-info h2 {
-      color: #765b00;
-      margin-bottom: 12px;
-    }
-
-    .contact-info p {
-      color: #665b36;
-      line-height: 1.8;
-      margin-bottom: 8px;
-    }
-
-    .contact-cta {
-      background: #176f9d;
-      color: white;
-      text-align: center;
-      padding: 45px 20px;
-    }
-
-    .contact-cta h2 {
-      margin-bottom: 12px;
-    }
-
-    .contact-cta p {
-      line-height: 1.7;
-    }
-
-    .contact-cta a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      background: #ffda42;
-      color: #17445b;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    @media (max-width: 760px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+@media(max-width:760px){
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .nav-inner{flex-wrap:wrap}
+  .menu-btn{display:block;margin-left:auto}
+  .nav-links{
+    display:none;order:3;width:100%;margin:0;
+    flex-direction:column;align-items:stretch;gap:5px
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px}
+  .hero{padding:55px 0 40px}
+  .contact-card{padding:25px 20px}
+  .cta-box{padding:30px 20px}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Service</a>
-    <a href="portfolio.html">Portofolio</a>
-    <a href="contact.html">Hubungi Kami</a>
-  </nav>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-pmd.png" alt="Post Management Data">
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Service</a>
+      <a href="portfolio.html">Portofolio</a>
+      <a href="contact.html" class="contact-link">Hubungi Kami</a>
+    </nav>
+  </div>
 </header>
 
-<section class="contact-hero">
-  <h1>Let's Connect!</h1>
-  <p>
-    Punya pertanyaan, ingin mengikuti kelas Excel, membutuhkan corporate
-    training, atau ingin mengolah data bisnis Anda?
-    Yuk, diskusikan kebutuhan Anda bersama Post Management Data.
-  </p>
+<main>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">LET'S CONNECT</span>
+    <h1>Ada yang ingin <span>didiskusikan?</span></h1>
+    <p>
+      Punya pertanyaan tentang kelas Excel, corporate training,
+      atau membutuhkan jasa pengolahan data?
+      Yuk, diskusikan kebutuhanmu bersama Post Management Data.
+    </p>
+  </div>
 </section>
 
-<main class="contact-container">
+<section class="contact-section">
+<div class="container">
 
   <div class="contact-grid">
 
-    <div class="contact-card">
+    <!-- WHATSAPP -->
+    <article class="contact-card">
       <div class="contact-icon">💬</div>
       <h2>WhatsApp</h2>
       <p>
         Hubungi kami untuk konsultasi kelas Excel, training perusahaan,
-        maupun jasa pengolahan data.
+        dan jasa pengolahan data.
       </p>
       <a class="contact-button"
-         href="https://wa.me/628217997761"
-         target="_blank"
-         rel="noopener">
-        Chat WhatsApp
+         href="https://wa.me/628217997761?text=Halo%20Post%20Management%20Data%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20PMD."
+         target="_blank" rel="noopener">
+        Chat WhatsApp ↗
       </a>
-    </div>
+    </article>
 
-    <div class="contact-card">
+    <!-- EMAIL -->
+    <article class="contact-card">
       <div class="contact-icon">✉️</div>
       <h2>Email</h2>
       <p>
-        Kirim pertanyaan atau kebutuhan kerja sama melalui email resmi
-        Post Management Data.
+        Kirim pertanyaan, permintaan proposal, atau kebutuhan kerja sama
+        melalui email resmi Post Management Data.
       </p>
       <a class="contact-button"
-         href="mailto:postmanagementdata@gmail.com">
-        Kirim Email
+         href="mailto:postmanagementdata@gmail.com?subject=Konsultasi%20Post%20Management%20Data">
+        Kirim Email ↗
       </a>
-    </div>
+      <button class="contact-button copy-button" id="copyEmail">
+        Salin Alamat Email
+      </button>
+      <span id="copyMessage" style="font-size:11px;color:#15966b;margin-top:7px" aria-live="polite"></span>
+    </article>
 
-    <div class="contact-card">
+    <!-- INSTAGRAM -->
+    <article class="contact-card">
       <div class="contact-icon">📱</div>
       <h2>Instagram</h2>
       <p>
@@ -203,39 +238,89 @@
       </p>
       <a class="contact-button"
          href="https://www.instagram.com/postmanagementdata/"
-         target="_blank"
-         rel="noopener">
-        Kunjungi Instagram
+         target="_blank" rel="noopener">
+        Kunjungi Instagram ↗
       </a>
-    </div>
+    </article>
 
   </div>
 
-  <section class="contact-info">
+  <div class="info-box">
     <h2>Informasi Layanan</h2>
     <p><strong>Area layanan:</strong> Gambir, Jakarta Pusat dan Karawang, Jawa Barat.</p>
     <p><strong>Metode layanan:</strong> Online dan offline.</p>
     <p><strong>Jam konsultasi:</strong> Silakan hubungi kami melalui WhatsApp atau email untuk mengatur jadwal.</p>
-  </section>
+  </div>
+
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+  <div class="cta-box">
+    <h2>Let's Make Your Data Work Better!</h2>
+    <p>
+      Mulai dari belajar Excel sampai pengolahan data,
+      kami siap membantu kebutuhanmu.
+    </p>
+    <a class="cta-button"
+       href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20berkonsultasi."
+       target="_blank" rel="noopener">
+      Konsultasi Sekarang ↗
+    </a>
+  </div>
+</div>
+</section>
 
 </main>
 
-<section class="contact-cta">
-  <h2>Let's Make Your Data Work Better!</h2>
-  <p>
-    Mulai dari belajar Excel sampai pengolahan data,
-    kami siap membantu kebutuhan Anda.
-  </p>
-  <a href="https://wa.me/628217997761"
-     target="_blank"
-     rel="noopener">
-    Konsultasi Sekarang
-  </a>
-</section>
-
-<footer style="text-align:center;padding:22px;background:#f5f8fa;color:#64727a;font-size:13px;">
-  © 2026 Post Management Data. All Rights Reserved.
+<footer>
+<div class="container footer-inner">
+  <span>© <span id="year"></span> Post Management Data. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Service</a>
+    <a href="portfolio.html">Portofolio</a>
+    <a href="https://www.instagram.com/postmanagementdata/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
 </footer>
+
+<script>
+(function(){
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click",function(){
+    const open=navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",String(open));
+    menuBtn.textContent=open?"✕":"☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(){
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      menuBtn.textContent="☰";
+    });
+  });
+
+  const copyButton=document.getElementById("copyEmail");
+  const copyMessage=document.getElementById("copyMessage");
+
+  copyButton.addEventListener("click",async function(){
+    const email="postmanagementdata@gmail.com";
+    try{
+      await navigator.clipboard.writeText(email);
+      copyMessage.textContent="Email berhasil disalin!";
+    }catch(error){
+      copyMessage.textContent="Silakan salin email: "+email;
+    }
+  });
+
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
 
 </body>
 </html>
