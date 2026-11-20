@@ -2,443 +2,356 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#218CC1">
-  <meta name="description" content="Pilih layanan Post Management Data: kelas Excel online, kelas offline, corporate training, dan jasa pengolahan data.">
-  <title>Service | Post Management Data</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Layanan Post Management Data: Kelas Excel Online, Kelas Excel Offline, Corporate Training, dan Jasa Pengolahan Data.">
+<title>Services | Post Management Data</title>
 
-  <link rel="icon" type="image/png" href="assets/img/logo-pmd.png">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
+<style>
+:root{
+  --ink:#243747;
+  --muted:#647789;
+  --line:#dce8ef;
+  --blue:#218cc1;
+  --blue-dark:#167bad;
+  --blue-soft:#eaf6fc;
+  --yellow:#ffda42;
+  --soft:#f3f9fc;
+  --shadow:0 12px 32px rgba(31,72,96,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.7
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:1120px;margin:auto;padding:0 22px}
 
-  <style>
-    .service-intro {
-      max-width: 820px;
-    }
+/* NAVIGATION */
+.nav{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{
+  max-width:1160px;margin:auto;padding:12px 22px;
+  display:flex;align-items:center;gap:20px
+}
+.logo img{width:135px;height:auto;display:block}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:13px;font-weight:700;color:#536879}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .contact-link{
+  background:var(--blue);color:#fff;padding:11px 18px;border-radius:9px
+}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:#fff;
+  border-radius:8px;padding:7px 11px;font-size:20px
+}
 
-    .service-intro .lead {
-      max-width: 720px;
-    }
+/* INTRO */
+.hero{
+  padding:78px 0 55px;
+  background:radial-gradient(circle at 85% 15%,#eaf6fc 0,transparent 38%)
+}
+.hero-content{max-width:800px}
+.eyebrow{
+  display:inline-block;background:var(--blue-soft);color:var(--blue);
+  padding:7px 13px;border-radius:7px;font-size:11px;
+  font-weight:800;letter-spacing:1.3px
+}
+.hero h1{
+  font-size:clamp(38px,5vw,55px);line-height:1.13;
+  letter-spacing:-1.8px;margin:20px 0
+}
+.hero h1 span{color:var(--blue)}
+.hero p{font-size:16px;color:var(--muted);max-width:700px}
 
-    .service-options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 38px;
-      margin-bottom: 75px;
-    }
+/* SERVICE CARDS */
+.services{padding:35px 0 75px}
+.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.service-card{
+  position:relative;border:1px solid var(--line);
+  border-radius:17px;padding:28px;background:#fff;
+  box-shadow:var(--shadow);display:flex;flex-direction:column
+}
+.service-card.yellow{background:#fff9e4;border-color:#f3e2a0}
+.service-card.blue{background:#f4faff}
+.service-number{
+  font-size:11px;font-weight:800;color:var(--blue);
+  letter-spacing:1.3px
+}
+.service-icon{
+  width:47px;height:47px;display:grid;place-items:center;
+  background:#fff;border:1px solid var(--line);
+  border-radius:12px;font-size:22px;margin:18px 0 10px
+}
+.service-card h2{font-size:23px;line-height:1.25;margin:0 0 10px}
+.service-card p{font-size:13px;color:var(--muted);margin:0 0 16px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}
+.tags span{
+  background:var(--blue-soft);color:#176b96;
+  padding:6px 10px;border-radius:7px;
+  font-size:10px;font-weight:700
+}
+.service-card ul{
+  padding-left:19px;color:var(--muted);
+  font-size:13px;margin:0 0 23px
+}
+.service-card li{padding:4px 0}
+.card-bottom{margin-top:auto}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 19px;border-radius:9px;
+  background:var(--blue);color:#fff;
+  font-size:13px;font-weight:750;transition:.2s
+}
+.btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
 
-    .service-option {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 390px;
-      padding: 30px;
-      border: 1px solid #DFE8EE;
-      border-radius: 18px;
-      background: #FFFFFF;
-      scroll-margin-top: 100px;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
+/* CUSTOM MESSAGE */
+.custom-section{padding:0 0 75px}
+.custom-box{
+  background:var(--blue);color:#fff;border-radius:17px;
+  padding:35px;display:flex;justify-content:space-between;
+  align-items:center;gap:25px
+}
+.custom-box h2{font-size:26px;line-height:1.25;margin:0 0 8px}
+.custom-box p{font-size:13px;color:#e8f5fb;margin:0;max-width:680px}
+.custom-box .btn{background:#fff;color:var(--blue-dark);white-space:nowrap}
 
-    .service-option:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(35, 75, 100, .09);
-    }
+/* FOOTER */
+footer{
+  background:#f5f9fc;border-top:1px solid var(--line);
+  padding:30px 0
+}
+.footer-inner{
+  display:flex;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;font-size:12px;color:var(--muted)
+}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--blue)}
 
-    .service-option.online {
-      background: #FFF8DE;
-      border-color: #F4E6A9;
-    }
-
-    .service-option.offline {
-      background: #F5FAFD;
-    }
-
-    .service-option.corporate {
-      background: #218CC1;
-      color: #FFFFFF;
-      border-color: #218CC1;
-    }
-
-    .service-option.data {
-      background: #FFFFFF;
-    }
-
-    .service-number {
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      color: #218CC1;
-    }
-
-    .corporate .service-number {
-      color: #FFDA42;
-    }
-
-    .service-symbol {
-      font-size: 2.2rem;
-      margin: 22px 0 10px;
-      color: #218CC1;
-    }
-
-    .corporate .service-symbol {
-      color: #FFDA42;
-    }
-
-    .service-option h2 {
-      font-size: 1.65rem;
-      margin: 5px 0 12px;
-      line-height: 1.25;
-    }
-
-    .service-option p {
-      font-size: .9rem;
-      line-height: 1.8;
-      color: #647482;
-    }
-
-    .corporate p {
-      color: #E8F5FB;
-    }
-
-    .service-option ul {
-      padding-left: 20px;
-      margin: 14px 0 22px;
-      font-size: .86rem;
-      line-height: 1.9;
-      color: #526775;
-    }
-
-    .corporate ul {
-      color: #FFFFFF;
-    }
-
-    .service-labels {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin: 12px 0;
-    }
-
-    .service-labels span {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 6px;
-      background: #EAF6FC;
-      color: #24688A;
-      font-size: .72rem;
-      font-weight: 700;
-    }
-
-    .corporate .service-labels span {
-      background: rgba(255,255,255,.17);
-      color: #FFFFFF;
-    }
-
-    .service-option .button {
-      margin-top: auto;
-      align-self: flex-start;
-    }
-
-    .service-option.corporate .button {
-      background: #FFDA42;
-      color: #263746;
-      border-color: #FFDA42;
-    }
-
-    .service-note {
-      margin: 0 auto 75px;
-      padding: 35px;
-      border-radius: 18px;
-      background: #FFF6D7;
-    }
-
-    .service-note h2 {
-      font-size: 1.8rem;
-      margin: 8px 0;
-    }
-
-    .service-note p {
-      max-width: 700px;
-      color: #647482;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 720px) {
-      .service-options {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .service-option {
-        min-height: auto;
-        padding: 24px;
-      }
-
-      .service-option h2 {
-        font-size: 1.45rem;
-      }
-
-      .service-note {
-        padding: 25px;
-      }
-    }
-  </style>
+@media(max-width:760px){
+  .service-grid{grid-template-columns:1fr}
+  .custom-box{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:620px){
+  .nav-inner{flex-wrap:wrap}
+  .menu-btn{display:block;margin-left:auto}
+  .nav-links{
+    display:none;order:3;width:100%;margin:0;
+    flex-direction:column;align-items:stretch;gap:5px
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px}
+  .hero{padding:55px 0 35px}
+  .service-card{padding:23px}
+  .custom-box{padding:25px}
+}
+</style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <a class="brand brand-image" href="index.html" aria-label="Post Management Data Home">
-    <img src="assets/img/logo-pmd.png" alt="Logo Post Management Data">
-  </a>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-pmd.png" alt="Post Management Data">
+    </a>
 
-  <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
 
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a class="active" href="services.html">Service</a>
-    <a href="portfolio.html">Portofolio</a>
-    <a class="nav-cta" href="contact.html">Hubungi Kami</a>
-  </nav>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Service</a>
+      <a href="portfolio.html">Portofolio</a>
+      <a href="contact.html" class="contact-link">Hubungi Kami</a>
+    </nav>
+  </div>
 </header>
 
 <main>
 
-<!-- INTRO -->
-<section class="page-hero section-wrap service-intro">
-
-  <p class="eyebrow">OUR SERVICES</p>
-
-  <h1>Mau belajar Excel atau butuh bantuan mengolah data?</h1>
-
-  <p class="lead">
-    Tenang, ada PMD! Mulai dari belajar spreadsheet secara santai,
-    meningkatkan kemampuan tim perusahaan, sampai membantu mengelola
-    data agar lebih rapi dan mudah digunakan.
-  </p>
-
-  <a class="button button-primary" href="#pilihan-layanan">
-    Temukan Layananmu ↓
-  </a>
-
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">OUR SERVICES</span>
+      <h1>Solusi belajar dan pengolahan data. <span>Lebih praktis bersama PMD.</span></h1>
+      <p>
+        Mulai dari belajar Excel secara personal, pelatihan untuk tim perusahaan,
+        hingga jasa pengolahan data. Pilih layanan yang sesuai dengan kebutuhanmu.
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- FOUR SERVICES -->
-<section class="section-wrap" id="pilihan-layanan">
+<section class="services">
+<div class="container">
 
-  <div class="service-options">
+  <div class="service-grid">
 
-    <!-- 01 ONLINE -->
-    <article class="service-option online" id="kelas-online">
-
+    <!-- ONLINE CLASS -->
+    <article class="service-card yellow" id="kelas-online">
       <span class="service-number">01 / ONLINE LEARNING</span>
-
-      <div class="service-symbol">⌨</div>
-
+      <div class="service-icon">⌨</div>
       <h2>Kelas Excel Online</h2>
-
       <p>
-        Belajar Excel dari mana saja bersama tutor.
+        Belajar Excel dari mana saja bersama tutor melalui Zoom Meeting.
         Suasananya santai, interaktif, dan langsung praktik.
-        Kamu bisa memilih belajar secara privat atau bersama grup.
       </p>
-
-      <div class="service-labels">
+      <div class="tags">
         <span>Private 1-on-1</span>
         <span>Group Class</span>
-        <span>Online</span>
+        <span>Zoom Meeting</span>
       </div>
-
       <ul>
-        <li>Excel Basic sampai Advanced</li>
+        <li>Materi Basic hingga Advanced</li>
         <li>Formula dan fungsi Excel</li>
-        <li>Google Sheets</li>
+        <li>Data Cleaning dan Data Management</li>
         <li>Latihan sesuai kebutuhan pekerjaan</li>
-        <li>Jadwal belajar fleksibel</li>
+        <li>Silabus dan materi pembelajaran</li>
       </ul>
-
-      <a class="button button-primary"
-         href="training.html#kelas-online">
-        Lihat Detail Kelas →
-      </a>
-
+      <div class="card-bottom">
+        <a class="btn" href="kelas-online.html">Lihat Kelas Online →</a>
+      </div>
     </article>
 
-    <!-- 02 OFFLINE -->
-    <article class="service-option offline" id="kelas-offline">
-
+    <!-- OFFLINE CLASS -->
+    <article class="service-card blue" id="kelas-offline">
       <span class="service-number">02 / FACE-TO-FACE LEARNING</span>
-
-      <div class="service-symbol">✦</div>
-
+      <div class="service-icon">✦</div>
       <h2>Kelas Excel Offline</h2>
-
       <p>
-        Lebih suka belajar langsung? Kita bisa belajar tatap muka.
-        Kamu dapat memilih kelas privat atau grup dengan praktik
-        dan pendampingan langsung dari tutor.
+        Belajar secara tatap muka dengan tutor. Cocok untuk kamu yang
+        lebih nyaman berdiskusi dan praktik secara langsung.
       </p>
-
-      <div class="service-labels">
+      <div class="tags">
         <span>Private Class</span>
         <span>Group Class</span>
-        <span>Offline</span>
+        <span>Face-to-Face</span>
       </div>
-
       <ul>
-        <li>Materi Basic sampai Advanced</li>
-        <li>Belajar dan praktik secara langsung</li>
-        <li>Tanya jawab bersama tutor</li>
-        <li>Materi sesuai tujuan belajar</li>
-        <li>Lokasi dan jadwal berdasarkan kesepakatan</li>
+        <li>Materi Basic hingga Advanced</li>
+        <li>Pendampingan dan praktik langsung</li>
+        <li>Diskusi serta tanya jawab</li>
+        <li>Area Jakarta dan Karawang</li>
+        <li>Silabus dan materi pembelajaran</li>
       </ul>
-
-      <a class="button button-primary"
-         href="training.html#kelas-offline">
-        Lihat Detail Kelas →
-      </a>
-
+      <div class="card-bottom">
+        <a class="btn" href="kelas-offline.html">Lihat Kelas Offline →</a>
+      </div>
     </article>
 
-    <!-- 03 CORPORATE -->
-    <article class="service-option corporate" id="corporate-training">
-
-      <span class="service-number">03 / FOR TEAMS & ORGANIZATIONS</span>
-
-      <div class="service-symbol">▦</div>
-
-      <h2>Corporate Training</h2>
-
+    <!-- CORPORATE TRAINING -->
+    <article class="service-card blue" id="corporate-training">
+      <span class="service-number">03 / CORPORATE LEARNING</span>
+      <div class="service-icon">▦</div>
+      <h2>Corporate Training Excel &amp; Spreadsheet</h2>
       <p>
-        Program pelatihan Excel dan spreadsheet untuk perusahaan
-        yang ingin meningkatkan kemampuan tim dalam mengelola
-        data dan menyelesaikan pekerjaan sehari-hari.
+        Program pelatihan untuk perusahaan dan organisasi yang ingin
+        meningkatkan kemampuan karyawan dalam mengelola data dan laporan.
       </p>
-
-      <div class="service-labels">
-        <span>Excel</span>
-        <span>Google Sheets</span>
+      <div class="tags">
         <span>Corporate</span>
+        <span>In-house Training</span>
+        <span>Custom Syllabus</span>
       </div>
-
       <ul>
-        <li>Materi sesuai kebutuhan perusahaan</li>
-        <li>Excel Basic hingga Advanced</li>
-        <li>Latihan berbasis kasus pekerjaan</li>
-        <li>Program dan durasi fleksibel</li>
-        <li>Evaluasi dan pembahasan latihan</li>
+        <li>Excel Basic, Intermediate, dan Advanced</li>
+        <li>Pelatihan sesuai kebutuhan divisi</li>
+        <li>Studi kasus pekerjaan</li>
+        <li>Praktik dan evaluasi pembelajaran</li>
+        <li>Materi dan durasi fleksibel</li>
       </ul>
-
-      <a class="button button-primary"
-         href="training.html#corporate-training">
-        Lihat Detail Training →
-      </a>
-
+      <div class="card-bottom">
+        <a class="btn" href="corporate-training.html">Lihat Corporate Training →</a>
+      </div>
     </article>
 
-    <!-- 04 DATA SERVICE -->
-    <article class="service-option data" id="data-service">
-
-      <span class="service-number">04 / DATA SOLUTIONS</span>
-
-      <div class="service-symbol">⌘</div>
-
+    <!-- DATA SERVICE -->
+    <article class="service-card yellow" id="data-service">
+      <span class="service-number">04 / DATA MANAGEMENT SOLUTION</span>
+      <div class="service-icon">▤</div>
       <h2>Jasa Pengolahan Data</h2>
-
       <p>
-        Punya data yang masih berantakan atau laporan yang
-        dikerjakan berulang kali secara manual? Kami membantu
-        membuat pengelolaan data lebih terstruktur dan efisien.
+        Bantu pekerjaan pengolahan data menjadi lebih rapi, terstruktur,
+        dan mudah digunakan untuk kebutuhan operasional maupun pelaporan.
       </p>
-
-      <div class="service-labels">
+      <div class="tags">
         <span>Data Cleaning</span>
+        <span>Spreadsheet</span>
         <span>Dashboard</span>
-        <span>Automation</span>
       </div>
-
       <ul>
-        <li>Data cleaning dan standardisasi</li>
-        <li>Dashboard dan visualisasi data</li>
-        <li>Spreadsheet automation</li>
-        <li>Database dan digital documentation</li>
-        <li>Template dan reporting</li>
+        <li>Data Cleaning dan Data Formatting</li>
+        <li>Data Consolidation dan Standardization</li>
+        <li>Excel dan Google Sheets Automation</li>
+        <li>Dashboard dan Data Visualization</li>
+        <li>Data Reporting dan Rekapitulasi</li>
       </ul>
-
-      <a class="button button-primary"
-         href="contact.html">
-        Konsultasikan Kebutuhan →
-      </a>
-
+      <div class="card-bottom">
+        <a class="btn" href="contact.html">Konsultasikan Kebutuhan →</a>
+      </div>
     </article>
 
   </div>
-
+</div>
 </section>
 
-<!-- CLOSING CTA -->
-<section class="section-wrap service-note">
-
-  <p class="eyebrow">NEED A LITTLE HELP?</p>
-
-  <h2>Belum tahu harus memilih layanan yang mana?</h2>
-
-  <p>
-    Nggak perlu bingung. Ceritakan saja kebutuhanmu.
-    Apakah ingin belajar Excel, meningkatkan kemampuan tim,
-    atau membutuhkan bantuan pengolahan data?
-    Kita diskusikan bersama.
-  </p>
-
-  <a class="button button-primary"
-     href="https://wa.me/628217997761?text=Halo%20PMD%2C%20saya%20ingin%20bertanya%20tentang%20layanan."
-     target="_blank"
-     rel="noopener">
-    Ngobrol dengan PMD ↗
-  </a>
-
+<section class="custom-section">
+<div class="container">
+  <div class="custom-box">
+    <div>
+      <h2>Belum yakin layanan mana yang kamu butuhkan?</h2>
+      <p>
+        Ceritakan kebutuhanmu kepada kami. Tim Post Management Data
+        akan membantu mendiskusikan pilihan layanan, materi, dan
+        pendekatan yang paling sesuai.
+      </p>
+    </div>
+    <a class="btn" href="https://wa.me/628217997761?text=Halo%20Post%20Management%20Data%2C%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20PMD.">
+      Konsultasi via WhatsApp ↗
+    </a>
+  </div>
+</div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-
-  <div class="section-wrap footer-inner">
-
-    <a class="footer-logo" href="index.html">
-      <img src="assets/img/logo-pmd.png" alt="Post Management Data">
-    </a>
-
-    <p>Rumah untuk data & spreadsheet Anda.</p>
-
-    <div class="footer-links">
-
-      <a href="https://www.instagram.com/postmanagementdata/"
-         target="_blank" rel="noopener">
-        Instagram
-      </a>
-
-      <a href="mailto:postmanagementdata@gmail.com">
-        Email
-      </a>
-
-      <a href="privacy.html">
-        Privasi
-      </a>
-
-      <span>
-        © <span data-year></span> Post Management Data
-      </span>
-
-    </div>
-
+<footer>
+<div class="container footer-inner">
+  <span>© <span id="year"></span> Post Management Data. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Service</a>
+    <a href="portfolio.html">Portofolio</a>
+    <a href="https://www.instagram.com/postmanagementdata/" target="_blank" rel="noopener">Instagram</a>
   </div>
-
+</div>
 </footer>
+
+<script>
+(function(){
+  const menuBtn=document.getElementById("menuBtn");
+  const navLinks=document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click",function(){
+    const open=navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded",String(open));
+    menuBtn.textContent=open?"✕":"☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click",function(){
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+      menuBtn.textContent="☰";
+    });
+  });
+
+  document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
 
 </body>
 </html>
