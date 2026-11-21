@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -47,6 +48,13 @@
       flex-direction: column;
       justify-content: center;
       gap: 13px;
+    }
+    .project-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 9px;
+      background: white;
     }
     .visual-label {
       font-size: 12px;
@@ -187,6 +195,7 @@
 
 <main class="portfolio-container">
 
+  <!-- PROJECT 1 -->
   <article class="project-card">
     <div class="project-visual">
       <div class="visual-label">EVENT LOGISTICS MONITORING</div>
@@ -232,6 +241,7 @@
     </div>
   </article>
 
+  <!-- PROJECT 2 -->
   <article class="project-card">
     <div class="project-visual">
       <div class="visual-label">ATK USAGE & FORECASTING</div>
@@ -276,6 +286,45 @@
       <div class="portfolio-note">
         Dataset pada proyek ini merupakan data simulasi (dummy) untuk
         demonstrasi proses analisis, bukan data transaksi aktual klien.
+      </div>
+    </div>
+  </article>
+
+  <!-- PROJECT 3 -->
+  <article class="project-card">
+    <div class="project-visual">
+      <div class="visual-label">MONTHLY REPORT MONITORING</div>
+      <img
+        src="assets/img/monthly-report-dashboard.jpg"
+        alt="Monthly Report Monitoring Dashboard"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="project-content">
+      <span class="project-type">Data Visualization & Reporting</span>
+      <h2>Monthly Report Monitoring Dashboard</h2>
+      <p>
+        Dashboard interaktif untuk memantau progres laporan bulanan karyawan.
+        Proyek ini dirancang untuk meningkatkan transparansi status pelaporan
+        antar divisi serta membantu manajemen memantau dokumen yang belum
+        disubmit, sedang dalam proses review, membutuhkan revisi, dan telah
+        disetujui.
+      </p>
+      <div class="project-tags">
+        <span>Google Sheets</span>
+        <span>Looker Studio</span>
+        <span>Data Visualization</span>
+        <span>Interactive Filters</span>
+        <span>Monthly Reporting</span>
+      </div>
+      <div class="project-links">
+        <a href="https://datastudio.google.com/reporting/31e985d2-84d7-46d0-b763-68fbdd7af6d4" target="_blank" rel="noopener">Live Dashboard</a>
+        <a class="secondary" href="docs/monthly-report-dashboard.pdf" target="_blank" rel="noopener">Portfolio PDF</a>
+      </div>
+      <div class="portfolio-note">
+        Proyek ini menggunakan data simulasi (dummy data) untuk demonstrasi
+        monitoring dan visualisasi laporan bulanan, bukan data aktual organisasi.
       </div>
     </div>
   </article>
