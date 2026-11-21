@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,27 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio | Post Management Data</title>
   <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
     .portfolio-hero {
       padding: 65px 20px 45px;
       text-align: center;
       background: #eef8fc;
     }
+
     .portfolio-hero h1 {
       color: #176f9d;
       font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 14px;
     }
+
     .portfolio-hero p {
       max-width: 720px;
       margin: auto;
       line-height: 1.8;
     }
+
     .portfolio-container {
       max-width: 1100px;
       margin: auto;
       padding: 45px 20px 70px;
     }
+
     .project-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -39,6 +43,7 @@
       border-radius: 18px;
       box-shadow: 0 8px 25px rgba(20, 70, 95, .07);
     }
+
     .project-visual {
       min-height: 260px;
       padding: 22px;
@@ -48,26 +53,32 @@
       flex-direction: column;
       justify-content: center;
       gap: 13px;
+      overflow: hidden;
     }
+
     .project-visual img {
       width: 100%;
       height: auto;
       display: block;
+      object-fit: contain;
       border-radius: 9px;
       background: white;
     }
+
     .visual-label {
       font-size: 12px;
       font-weight: 700;
       color: #176f9d;
       letter-spacing: 1px;
     }
+
     .visual-panel {
       background: white;
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 3px 12px rgba(0,0,0,.04);
     }
+
     .visual-bars {
       display: flex;
       align-items: end;
@@ -75,23 +86,28 @@
       height: 85px;
       margin-top: 12px;
     }
+
     .visual-bars span {
       flex: 1;
       background: #218cc1;
       border-radius: 5px 5px 0 0;
     }
+
     .visual-bars span:nth-child(2n) {
       background: #ffda42;
     }
+
     .project-content h2 {
       color: #176f9d;
       margin: 8px 0 13px;
       font-size: 1.55rem;
     }
+
     .project-content p {
       line-height: 1.75;
       color: #52616a;
     }
+
     .project-type {
       display: inline-block;
       background: #fff3bd;
@@ -101,12 +117,14 @@
       font-size: 12px;
       font-weight: 700;
     }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin: 16px 0 20px;
     }
+
     .project-tags span {
       background: #edf5f8;
       color: #28627e;
@@ -114,11 +132,13 @@
       padding: 6px 10px;
       font-size: 12px;
     }
+
     .project-links {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
     }
+
     .project-links a {
       display: inline-block;
       text-decoration: none;
@@ -129,11 +149,13 @@
       font-size: 13px;
       font-weight: 600;
     }
+
     .project-links a.secondary {
       background: #fff;
       color: #176f9d;
       border: 1px solid #218cc1;
     }
+
     .portfolio-note {
       background: #fff8d9;
       border-left: 4px solid #ffda42;
@@ -143,15 +165,18 @@
       line-height: 1.7;
       margin-top: 18px;
     }
+
     .portfolio-cta {
       text-align: center;
       background: #176f9d;
       color: white;
       padding: 45px 20px;
     }
+
     .portfolio-cta h2 {
       margin-bottom: 10px;
     }
+
     .portfolio-cta a {
       display: inline-block;
       margin-top: 15px;
@@ -162,17 +187,20 @@
       font-weight: 700;
       text-decoration: none;
     }
+
     @media(max-width: 760px) {
       .project-card {
         grid-template-columns: 1fr;
         padding: 18px;
       }
+
       .project-visual {
         min-height: 220px;
       }
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -195,12 +223,18 @@
 
 <main class="portfolio-container">
 
-  <!-- PROJECT 1 -->
+  <!-- PROJECT 1: EVENT LOGISTICS -->
+
   <article class="project-card">
+
     <div class="project-visual">
-      <div class="visual-label">EVENT LOGISTICS MONITORING</div>
+      <div class="visual-label">
+        EVENT LOGISTICS MONITORING
+      </div>
+
       <div class="visual-panel">
         <strong>Event Operations Overview</strong>
+
         <div class="visual-bars">
           <span style="height:45%"></span>
           <span style="height:75%"></span>
@@ -209,19 +243,24 @@
           <span style="height:68%"></span>
           <span style="height:100%"></span>
         </div>
+
         <small>Dashboard illustration</small>
       </div>
     </div>
 
     <div class="project-content">
+
       <span class="project-type">Web Application</span>
+
       <h2>Event Logistics Monitoring Web App</h2>
+
       <p>
         Aplikasi monitoring untuk membantu pengelolaan jadwal aktivitas
         loading-in dan loading-out event. Informasi yang sebelumnya tersebar
         melalui email dirangkum dalam satu sistem yang dapat diakses melalui
         desktop maupun perangkat mobile.
       </p>
+
       <div class="project-tags">
         <span>Google Sheets</span>
         <span>Google Apps Script</span>
@@ -229,26 +268,55 @@
         <span>CSS</span>
         <span>JavaScript</span>
       </div>
+
       <div class="project-links">
-        <a href="https://postmanagementdata.github.io/kalender-operasional-ga/" target="_blank" rel="noopener">Live Demo</a>
-        <a class="secondary" href="docs/event-logistics-portfolio.pdf" target="_blank">Portfolio PDF</a>
-        <a class="secondary" href="https://lnkd.in/p/gC78kZQ8" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://postmanagementdata.github.io/kalender-operasional-ga/"
+           target="_blank" rel="noopener">
+          Live Demo
+        </a>
+
+        <a class="secondary"
+           href="docs/event-logistics-portfolio.pdf"
+           target="_blank">
+          Portfolio PDF
+        </a>
+
+        <a class="secondary"
+           href="https://lnkd.in/p/gC78kZQ8"
+           target="_blank" rel="noopener">
+          LinkedIn
+        </a>
       </div>
+
       <div class="portfolio-note">
         Proyek ini dikembangkan berdasarkan pengalaman kerja dan kebutuhan
         operasional yang pernah dihadapi, bukan proyek klien Post Management Data.
       </div>
+
     </div>
   </article>
 
-  <!-- PROJECT 2 -->
+
+  <!-- PROJECT 2: ATK FORECASTING -->
+
   <article class="project-card">
+
     <div class="project-visual">
-      <div class="visual-label">ATK USAGE & FORECASTING</div>
+      <div class="visual-label">
+        ATK USAGE & FORECASTING
+      </div>
+
       <div class="visual-panel">
         <strong>Office Supplies Analytics</strong>
-        <p style="font-size:13px;margin:10px 0 0;">Total simulated transactions</p>
-        <h2 style="font-size:27px;color:#176f9d;margin:4px 0;">500</h2>
+
+        <p style="font-size:13px;margin:10px 0 0;">
+          Total simulated transactions
+        </p>
+
+        <h2 style="font-size:27px;color:#176f9d;margin:4px 0;">
+          500
+        </h2>
+
         <div class="visual-bars">
           <span style="height:55%"></span>
           <span style="height:85%"></span>
@@ -257,19 +325,24 @@
           <span style="height:75%"></span>
           <span style="height:100%"></span>
         </div>
+
         <small>Dashboard illustration</small>
       </div>
     </div>
 
     <div class="project-content">
+
       <span class="project-type">Data Analytics & Forecasting</span>
+
       <h2>ATK Usage & Forecasting Dashboard</h2>
+
       <p>
         Studi kasus simulasi pengolahan data penggunaan alat tulis kantor
         (ATK). Proyek ini mencakup proses data cleaning, rekap penggunaan
         bulanan, perhitungan Moving Average, analisis GAP, Safety Stock,
         hingga visualisasi dashboard untuk mendukung perencanaan kebutuhan.
       </p>
+
       <div class="project-tags">
         <span>Google Sheets</span>
         <span>Data Cleaning</span>
@@ -277,33 +350,67 @@
         <span>Safety Stock</span>
         <span>Looker Studio</span>
       </div>
+
       <div class="project-links">
-        <a href="https://datastudio.google.com/s/op3V52fbCAQ" target="_blank" rel="noopener">View Dashboard</a>
-        <a class="secondary" href="docs/atk-case-study.pdf" target="_blank">Case Study PDF</a>
-        <a class="secondary" href="docs/atk-dashboard-report.pdf" target="_blank">Dashboard PDF</a>
-        <a class="secondary" href="https://lnkd.in/p/gTGigGhF" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://datastudio.google.com/s/op3V52fbCAQ"
+           target="_blank" rel="noopener">
+          View Dashboard
+        </a>
+
+        <a class="secondary"
+           href="docs/atk-case-study.pdf"
+           target="_blank">
+          Case Study PDF
+        </a>
+
+        <a class="secondary"
+           href="docs/atk-dashboard-report.pdf"
+           target="_blank">
+          Dashboard PDF
+        </a>
+
+        <a class="secondary"
+           href="https://lnkd.in/p/gTGigGhF"
+           target="_blank" rel="noopener">
+          LinkedIn
+        </a>
       </div>
+
       <div class="portfolio-note">
         Dataset pada proyek ini merupakan data simulasi (dummy) untuk
         demonstrasi proses analisis, bukan data transaksi aktual klien.
       </div>
+
     </div>
   </article>
 
-  <!-- PROJECT 3 -->
+
+  <!-- PROJECT 3: MONTHLY REPORT MONITORING -->
+
   <article class="project-card">
+
     <div class="project-visual">
-      <div class="visual-label">MONTHLY REPORT MONITORING</div>
+
+      <div class="visual-label">
+        MONTHLY REPORT MONITORING
+      </div>
+
       <img
-        src="assets/img/monthly-report-dashboard.jpg"
+        src="assets/img/monthly-report-dashboard.png"
         alt="Monthly Report Monitoring Dashboard"
         loading="lazy"
       >
+
     </div>
 
     <div class="project-content">
-      <span class="project-type">Data Visualization & Reporting</span>
+
+      <span class="project-type">
+        Data Visualization & Reporting
+      </span>
+
       <h2>Monthly Report Monitoring Dashboard</h2>
+
       <p>
         Dashboard interaktif untuk memantau progres laporan bulanan karyawan.
         Proyek ini dirancang untuk meningkatkan transparansi status pelaporan
@@ -311,6 +418,7 @@
         disubmit, sedang dalam proses review, membutuhkan revisi, dan telah
         disetujui.
       </p>
+
       <div class="project-tags">
         <span>Google Sheets</span>
         <span>Looker Studio</span>
@@ -318,24 +426,51 @@
         <span>Interactive Filters</span>
         <span>Monthly Reporting</span>
       </div>
+
       <div class="project-links">
-        <a href="https://datastudio.google.com/reporting/31e985d2-84d7-46d0-b763-68fbdd7af6d4" target="_blank" rel="noopener">Live Dashboard</a>
-        <a class="secondary" href="docs/monthly-report-dashboard.pdf" target="_blank" rel="noopener">Portfolio PDF</a>
+
+        <a href="https://datastudio.google.com/reporting/31e985d2-84d7-46d0-b763-68fbdd7af6d4"
+           target="_blank" rel="noopener">
+          Live Dashboard
+        </a>
+
+        <a class="secondary"
+           href="docs/monthly-report-dashboard.pdf"
+           target="_blank" rel="noopener">
+          Portfolio PDF
+        </a>
+
       </div>
+
       <div class="portfolio-note">
         Proyek ini menggunakan data simulasi (dummy data) untuk demonstrasi
         monitoring dan visualisasi laporan bulanan, bukan data aktual organisasi.
       </div>
+
     </div>
   </article>
 
 </main>
 
+
+<!-- CONTACT CTA -->
+
 <section class="portfolio-cta">
+
   <h2>Punya Data yang Perlu Diolah?</h2>
-  <p>Kami siap membantu membuat data lebih rapi, terstruktur, dan mudah dipahami.</p>
-  <a href="https://wa.me/628217997761" target="_blank" rel="noopener">Diskusikan Kebutuhan Anda</a>
+
+  <p>
+    Kami siap membantu membuat data lebih rapi, terstruktur,
+    dan mudah dipahami.
+  </p>
+
+  <a href="https://wa.me/628217997761"
+     target="_blank" rel="noopener">
+    Diskusikan Kebutuhan Anda
+  </a>
+
 </section>
+
 
 <footer style="text-align:center;padding:22px;background:#f5f8fa;color:#64727a;font-size:13px;">
   © 2026 Post Management Data. All Rights Reserved.
